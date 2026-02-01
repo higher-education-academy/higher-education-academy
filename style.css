@@ -195,12 +195,13 @@ h3{
 /* LOGO — LIMPIO, SIN CIRCULO */
 .hero-logo{
   display:block;
-  max-width:160px;
+  max-width:220px;   /* tamaño en móvil */
   width:100%;
   height:auto;
-  margin:0 auto 18px;
-  filter:drop-shadow(0 8px 20px rgba(0,0,0,.35));
+  margin:0 auto 28px; /* centrado + espacio abajo */
+  filter: drop-shadow(0 10px 26px rgba(0,0,0,.45));
 }
+
 
 .kicker{
   margin:0 0 10px;
@@ -362,4 +363,9 @@ input:focus,select:focus,textarea:focus{
   .nav{display:flex}
   .hamburger{display:none}
   .mobile-menu{display:none!important}
+}
+@media (min-width: 900px){
+  .hero-logo{
+    max-width:260px; /* más grande en desktop */
+  }
 }
