@@ -526,7 +526,32 @@ input:focus,select:focus,textarea:focus{
     transform: translateY(-40%);
     opacity:.85;
   }
+  /* ================= GOLD RAIN (sube de abajo hacia arriba) ================= */
+.gold-rain{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0; /* encima del .bg (-1), debajo del contenido */
+  overflow:hidden;
 }
 
+.gold-rain::before{
+  content:"";
+  position:absolute;
+  inset:-30% 0;
+  background:
+    radial-gradient(circle, rgba(212,175,55,.35) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(242,193,78,.25) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(212,175,55,.30) 0 1.6px, transparent 3px);
+  background-size: 180px 180px;
+  animation: goldUp 30s linear infinite;
+  opacity:.75;
 }
+
+@keyframes goldUp{
+  from{ transform: translateY(40%); }
+  to{ transform: translateY(-40%); }
+}
+
+
 
