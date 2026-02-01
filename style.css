@@ -332,23 +332,24 @@ input:focus,select:focus,textarea:focus{
   .hero-logo{max-width:300px}
 }
 
-/* ================= EAGLES LOGO (AÑADIDO) ================= */
+/* ================= EAGLES LOGO (MISMO TAMAÑO QUE HERO LOGO) ================= */
 .eagles-logo-wrap{
   display:flex;
   justify-content:center;
-  margin:0 auto 32px;
+  margin:0 auto 28px; /* MISMO margen que hero logo */
 }
 
 .eagles-logo{
   display:block;
+  max-width:255px; /* EXACTO igual que .hero-logo */
   width:100%;
-  max-width:255px; /* igual que el logo principal */
   height:auto;
+  margin:0; /* el wrap controla el margen */
   filter:drop-shadow(0 12px 28px rgba(0,0,0,.45));
 }
 
 @media (min-width:900px){
   .eagles-logo{
-    max-width:300px; /* igual que el logo principal en desktop */
+    max-width:300px; /* EXACTO igual que .hero-logo en desktop */
   }
 }
