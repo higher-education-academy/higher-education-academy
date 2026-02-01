@@ -499,7 +499,7 @@ input:focus,select:focus,textarea:focus{
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:-1; /* detrás del contenido, encima del bg */
+  z-index:0; /* 👈 encima del .bg */
   overflow:hidden;
 }
 
