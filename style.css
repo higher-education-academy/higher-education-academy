@@ -494,5 +494,39 @@ input:focus,select:focus,textarea:focus{
   .business-logo{
     max-width:300px;
   }
+  /* ================= GOLD RAIN (sube de abajo hacia arriba) ================= */
+.gold-rain{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1; /* detrás del contenido, encima del bg */
+  overflow:hidden;
+}
+
+.gold-rain::before{
+  content:"";
+  position:absolute;
+  inset:-20% 0;
+  background:
+    radial-gradient(circle at 20% 110%, rgba(212,175,55,.35) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 120%, rgba(242,193,78,.25) 0 2px, transparent 3px),
+    radial-gradient(circle at 65% 115%, rgba(212,175,55,.30) 0 1.8px, transparent 3px),
+    radial-gradient(circle at 80% 130%, rgba(242,193,78,.22) 0 2px, transparent 3px);
+  background-size: 220px 220px;
+  animation: goldUp 28s linear infinite;
+  filter: blur(.2px);
+}
+
+@keyframes goldUp{
+  from{
+    transform: translateY(0);
+    opacity:.55;
+  }
+  to{
+    transform: translateY(-40%);
+    opacity:.85;
+  }
+}
+
 }
 
