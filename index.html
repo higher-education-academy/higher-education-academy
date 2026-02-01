@@ -319,8 +319,33 @@
     document.addEventListener("keydown", (e) => {
       if(e.key === "Escape") closeMenu();
     });
-   
 
+    /* ===== FIX: al refrescar no debe brincar a áreas random ===== */
+    // Evita que el navegador intente restaurar el scroll anterior (Safari/Chrome)
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    // Si hay #hash, scrollea a esa sección SOLO cuando ya cargó el layout.
+    // Si no hay hash, fuerza arriba.
+    window.addEventListener("load", () => {
+      const hash = window.location.hash;
+
+      if (!hash) {
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      const el = document.querySelector(hash);
+      if (!el) return;
+
+      // Espera 2 frames para evitar brincos por reflow/animaciones
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.scrollIntoView({ behavior: "auto", block: "start" });
+        });
+      });
+    });
   </script>
 </body>
 </html>
