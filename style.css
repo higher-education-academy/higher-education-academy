@@ -2,9 +2,6 @@
   --bg0:#061022;
   --bg1:#0B1E3B;
 
-  --card: rgba(255,255,255,.06);
-  --card2: rgba(255,255,255,.04);
-
   --gold:#D4AF37;
   --gold2:#F2C14E;
 
@@ -46,13 +43,9 @@ body.loaded{opacity:1}
 }
 
 a{color:inherit;text-decoration:none}
-.link{
-  text-decoration:underline;
-  text-decoration-color:rgba(242,193,78,.35);
-}
-.link:hover{
-  text-decoration-color:rgba(242,193,78,.8);
-}
+
+.muted{color:var(--muted)}
+.tiny{font-size:12px;color:var(--muted2);margin-top:10px}
 
 h1,h2,h3{letter-spacing:-0.02em}
 h2{
@@ -63,9 +56,6 @@ h3{
   margin:0 0 8px;
   font-size:18px;
 }
-
-.muted{color:var(--muted)}
-.tiny{font-size:12px;color:var(--muted2);margin-top:10px}
 
 /* ================= BACKGROUND ================= */
 .bg{
@@ -96,31 +86,35 @@ h3{
 .top{
   position:sticky;
   top:0;
-  background:rgba(7,20,39,.72);
+  background:rgba(7,20,39,.82);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--stroke2);
   z-index:50;
 }
+
 .top-row{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:14px;
-  padding:12px 0;
+  gap:10px;
+  padding:14px 0;
 }
+
+/* HEADER TEXT MÁS GRANDE */
 .brand{
   font-weight:900;
   text-transform:uppercase;
-  letter-spacing:.08em;
-  font-size:13px;
+  letter-spacing:.10em;
+  font-size:17px;
   color:var(--gold2);
+  line-height:1.2;
 }
 
 /* Desktop nav */
 .nav{
   display:none;
   align-items:center;
-  gap:12px;
+  gap:10px;
 }
 .nav a{
   padding:10px 12px;
@@ -128,7 +122,7 @@ h3{
   color:rgba(245,247,250,.85);
 }
 .nav a:hover{
-  background:rgba(255,255,255,.05);
+  background:rgba(255,255,255,.06);
 }
 .nav .nav-cta{
   background:linear-gradient(135deg,var(--gold),var(--gold2));
@@ -184,7 +178,7 @@ h3{
 
 /* ================= HERO ================= */
 .hero{
-  padding:72px 0 36px;
+  padding:72px 0 40px;
   text-align:center;
 }
 .hero-centered{
@@ -192,29 +186,19 @@ h3{
   margin:auto;
 }
 
-/* LOGO — LIMPIO, SIN CIRCULO */
+/* LOGO – +15% MÁS GRANDE */
 .hero-logo{
   display:block;
-  max-width:220px;   /* tamaño en móvil */
+  max-width:255px;
   width:100%;
   height:auto;
-  margin:0 auto 28px; /* centrado + espacio abajo */
-  filter: drop-shadow(0 10px 26px rgba(0,0,0,.45));
-}
-
-
-.kicker{
-  margin:0 0 10px;
-  color:rgba(245,247,250,.7);
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-weight:800;
-  font-size:12px;
+  margin:0 auto 28px;
+  filter:drop-shadow(0 12px 28px rgba(0,0,0,.45));
 }
 
 h1{
   font-size:clamp(30px,4vw,52px);
-  margin:0 0 12px;
+  margin:0 0 14px;
   line-height:1.08;
 }
 
@@ -231,10 +215,10 @@ h1{
   justify-content:center;
   gap:12px;
   flex-wrap:wrap;
-  margin-bottom:20px;
+  margin-bottom:24px;
 }
 .btn{
-  padding:12px 18px;
+  padding:12px 20px;
   border-radius:999px;
   font-weight:900;
   border:1px solid transparent;
@@ -253,32 +237,13 @@ h1{
 /* ================= SECTIONS ================= */
 .section{padding:64px 0}
 
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:16px;
-}
-
-.pill{
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  background:rgba(255,255,255,.05);
-  border:1px solid var(--stroke2);
-  padding:10px 12px;
-  border-radius:999px;
-}
-
-/* Cards */
 .cards{
   display:grid;
   grid-template-columns:1fr;
   gap:14px;
 }
 .card{
-  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.035));
+  background:rgba(255,255,255,.05);
   border:1px solid var(--stroke2);
   border-radius:var(--r2);
   padding:18px;
@@ -311,7 +276,7 @@ h1{
 .line:last-child{border-bottom:none}
 
 .form{
-  background:var(--card);
+  background:rgba(255,255,255,.05);
   border:1px solid var(--stroke2);
   border-radius:var(--r2);
   padding:18px;
@@ -360,12 +325,9 @@ input:focus,select:focus,textarea:focus{
 }
 
 @media (min-width:900px){
+  .brand{font-size:19px}
   .nav{display:flex}
   .hamburger{display:none}
   .mobile-menu{display:none!important}
-}
-@media (min-width: 900px){
-  .hero-logo{
-    max-width:260px; /* más grande en desktop */
-  }
+  .hero-logo{max-width:300px}
 }
