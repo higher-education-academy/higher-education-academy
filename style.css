@@ -100,6 +100,7 @@ h3{
   padding:14px 0;
 }
 
+/* HEADER TEXT MÁS GRANDE */
 .brand{
   font-weight:900;
   text-transform:uppercase;
@@ -107,6 +108,72 @@ h3{
   font-size:17px;
   color:var(--gold2);
   line-height:1.2;
+}
+
+/* Desktop nav */
+.nav{
+  display:none;
+  align-items:center;
+  gap:10px;
+}
+.nav a{
+  padding:10px 12px;
+  border-radius:999px;
+  color:rgba(245,247,250,.85);
+}
+.nav a:hover{
+  background:rgba(255,255,255,.06);
+}
+.nav .nav-cta{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#08152d;
+  font-weight:900;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  border:1px solid var(--stroke);
+  background:rgba(255,255,255,.04);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  padding:0 12px;
+  cursor:pointer;
+}
+.hamburger span{
+  height:2px;
+  width:100%;
+  background:rgba(245,247,250,.9);
+  border-radius:2px;
+  transition:.22s ease;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu{
+  display:none;
+  flex-direction:column;
+  gap:10px;
+  padding:14px 0 18px;
+  border-top:1px solid var(--stroke2);
+}
+.mobile-menu.show{display:flex}
+.mobile-menu a{
+  padding:12px 14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--stroke);
+  font-weight:800;
+}
+.mobile-menu .mobile-cta{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#0A1630;
 }
 
 /* ================= HERO ================= */
@@ -117,6 +184,7 @@ h3{
   overflow:hidden;
 }
 
+/* ✅ FOTO + DEGRADADO OSCURO DETRÁS DEL LOGO PRINCIPAL */
 .hero::before{
   content:"";
   position:absolute;
@@ -130,6 +198,7 @@ h3{
   z-index:0;
 }
 
+/* el contenido del hero por encima del fondo */
 .hero .wrap{
   position:relative;
   z-index:1;
@@ -140,6 +209,7 @@ h3{
   margin:auto;
 }
 
+/* LOGO – +15% MÁS GRANDE */
 .hero-logo{
   display:block;
   max-width:255px;
@@ -160,6 +230,31 @@ h1{
   margin:0 auto 22px;
   color:var(--muted);
   line-height:1.6;
+}
+
+/* Buttons */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:24px;
+}
+.btn{
+  padding:12px 20px;
+  border-radius:999px;
+  font-weight:900;
+  border:1px solid transparent;
+  transition:.15s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#0A1630;
+}
+.btn-soft{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
 }
 
 /* ================= SECTIONS ================= */
@@ -254,6 +349,9 @@ input:focus,select:focus,textarea:focus{
 
 @media (min-width:900px){
   .brand{font-size:19px}
+  .nav{display:flex}
+  .hamburger{display:none}
+  .mobile-menu{display:none!important}
   .hero-logo{max-width:300px}
 }
 
@@ -265,16 +363,18 @@ input:focus,select:focus,textarea:focus{
 }
 .eagles-logo{
   display:block;
-  max-width:255px;
+  max-width:255px; /* igual que .hero-logo */
   width:100%;
   height:auto;
   filter:drop-shadow(0 12px 28px rgba(0,0,0,.45));
 }
 @media (min-width:900px){
-  .eagles-logo{max-width:300px}
+  .eagles-logo{
+    max-width:300px; /* igual que .hero-logo en desktop */
+  }
 }
 
-/* ================= SECTION HEAD ================= */
+/* ================= ORDENAR TEXTO / EAGLES LAYOUT ================= */
 .section-head{
   display:flex;
   align-items:flex-end;
@@ -312,7 +412,7 @@ input:focus,select:focus,textarea:focus{
   }
 }
 
-/* ================= SPLIT / PANELS ================= */
+/* Paneles */
 .split{
   display:grid;
   grid-template-columns:1fr;
@@ -339,7 +439,7 @@ input:focus,select:focus,textarea:focus{
   .split{grid-template-columns:1fr 1fr; gap:16px;}
 }
 
-/* ================= LISTS ================= */
+/* Bullets */
 .list{
   margin:10px 0 14px;
   padding-left:20px;
@@ -347,7 +447,7 @@ input:focus,select:focus,textarea:focus{
 }
 .list li{margin:8px 0; line-height:1.55}
 
-/* ================= MINI GRID ================= */
+/* Mini grid */
 .mini-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -375,19 +475,5 @@ input:focus,select:focus,textarea:focus{
   font-weight:900;
 }
 
-/* ================= BUSINESS KIDS LOGO ================= */
-.business-logo-wrap{
-  display:flex;
-  justify-content:center;
-  margin:8px auto 22px;
-}
-.business-logo{
-  display:block;
-  max-width:255px;
-  width:100%;
-  height:auto;
-  filter:drop-shadow(0 12px 28px rgba(0,0,0,.45));
-}
-@media (min-width:900px){
-  .business-logo{max-width:300px}
-}
+/* Botón */
+.panel .btn{margin-top:6px}
