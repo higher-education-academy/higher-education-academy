@@ -13,37 +13,27 @@
 <body>
   <div class="bg"></div>
 
-  <!-- TOP BAR -->
+  <!-- TOP BAR (solo nombre + hamburger) -->
   <header class="top">
-    <div class="wrap">
-      <a class="brand" href="#home">Higher Education Academy</a>
-
-      <!-- NAV DESKTOP -->
-      <nav class="nav">
-        <a href="#about">Academia</a>
-        <a href="#pillars">Pilares</a>
-        <a href="#contact">Contacto</a>
-      </nav>
-
-      <a class="btn btn-ghost desktop-only" href="#contact">
-        Solicitar información
+    <div class="wrap top-row">
+      <a class="brand" href="#home" aria-label="Higher Education Academy">
+        Higher Education Academy
       </a>
 
-      <!-- HAMBURGER -->
-      <button class="hamburger" aria-label="Menú" aria-expanded="false">
+      <button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
 
-    <!-- MENU MOVIL -->
-    <div class="mobile-menu">
+    <!-- MOBILE MENU -->
+    <nav id="mobileMenu" class="mobile-menu" aria-label="Menú principal">
       <a href="#about">Academia</a>
-      <a href="#pillars">Pilares</a>
-      <a href="#contact">Contacto</a>
-      <a href="#contact" class="btn btn-primary w100">Solicitar información</a>
-    </div>
+      <a href="#eagles">Eagles Basketball</a>
+      <a href="#business">Business Kids</a>
+      <a class="mobile-cta" href="#contact">Solicitar información</a>
+    </nav>
   </header>
 
   <main>
@@ -51,7 +41,6 @@
     <section class="hero" id="home">
       <div class="wrap hero-grid">
         <div class="hero-centered">
-
           <img src="assets/img/logo.png" alt="Higher Education Academy" class="hero-logo" />
 
           <h1>Excelencia académica con valores que trascienden.</h1>
@@ -63,7 +52,7 @@
 
           <div class="actions">
             <a class="btn btn-primary" href="#contact">Contáctanos</a>
-            <a class="btn btn-soft" href="#pillars">Ver pilares</a>
+            <a class="btn btn-soft" href="#about">Ver más</a>
           </div>
         </div>
       </div>
@@ -72,43 +61,56 @@
     <!-- ABOUT -->
     <section class="section" id="about">
       <div class="wrap">
-        <h2>Una academia con propósito</h2>
+        <h2>Academia</h2>
         <p class="muted">
-          Educación enfocada en el desarrollo académico, humano y ético
-          de cada estudiante.
+          Educación enfocada en el desarrollo académico, humano y ético de cada estudiante.
         </p>
       </div>
     </section>
 
-    <!-- PILLARS -->
-    <section class="section" id="pillars">
+    <!-- EAGLES -->
+    <section class="section" id="eagles">
       <div class="wrap">
-        <h2>Pilares</h2>
+        <h2>Eagles Basketball</h2>
+        <p class="muted">
+          Sección para información del programa deportivo, entrenamientos y logros.
+        </p>
+      </div>
+    </section>
 
-        <div class="grid">
-          <article class="card">
-            <h3>Excelencia Académica</h3>
-            <p>Currículo sólido y acompañamiento continuo.</p>
-          </article>
-
-          <article class="card">
-            <h3>Desarrollo Integral</h3>
-            <p>Formación del carácter, liderazgo y valores.</p>
-          </article>
-
-          <article class="card">
-            <h3>Comunidad y Valores</h3>
-            <p>Un entorno seguro, disciplinado y respetuoso.</p>
-          </article>
-        </div>
+    <!-- BUSINESS KIDS -->
+    <section class="section" id="business">
+      <div class="wrap">
+        <h2>Business Kids</h2>
+        <p class="muted">
+          Sección para el programa de emprendimiento y liderazgo para estudiantes.
+        </p>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="cta" id="contact">
       <div class="wrap">
-        <h2>¿Deseas más información?</h2>
+        <h2>Solicitar información</h2>
         <p class="muted">Contáctanos y con gusto te orientamos.</p>
+
+        <div class="contact-card">
+          <div class="row">
+            <span class="label">Teléfono</span>
+            <span class="value">(787) 000-0000</span>
+          </div>
+          <div class="row">
+            <span class="label">Email</span>
+            <span class="value">info@highereducationacademy.org</span>
+          </div>
+          <div class="row">
+            <span class="label">Ubicación</span>
+            <span class="value">Puerto Rico</span>
+          </div>
+
+          <a class="btn btn-primary w100" href="#">Enviar solicitud</a>
+          <p class="tiny">*Datos de ejemplo.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -120,28 +122,31 @@
   </footer>
 
   <script>
-    // Fade in
-    window.addEventListener("load", () =>
-      document.body.classList.add("loaded")
-    );
+    // Fade-in
+    window.addEventListener("load", () => document.body.classList.add("loaded"));
 
-    // Hamburger toggle
+    // Mobile menu toggle
     const burger = document.querySelector(".hamburger");
     const menu = document.querySelector(".mobile-menu");
 
+    function closeMenu(){
+      burger.classList.remove("open");
+      menu.classList.remove("show");
+      burger.setAttribute("aria-expanded", "false");
+    }
+
     burger.addEventListener("click", () => {
-      const open = burger.classList.toggle("open");
+      const isOpen = burger.classList.toggle("open");
       menu.classList.toggle("show");
-      burger.setAttribute("aria-expanded", open);
+      burger.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // Close menu on link click
-    document.querySelectorAll(".mobile-menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        burger.classList.remove("open");
-        menu.classList.remove("show");
-        burger.setAttribute("aria-expanded", "false");
-      });
+    // Close on click
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeMenu();
     });
   </script>
 </body>
