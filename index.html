@@ -16,17 +16,33 @@
   <!-- TOP BAR -->
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="#home" aria-label="Higher Education Academy">
-        Higher Education Academy
-      </a>
+      <a class="brand" href="#home">Higher Education Academy</a>
 
+      <!-- NAV DESKTOP -->
       <nav class="nav">
         <a href="#about">Academia</a>
         <a href="#pillars">Pilares</a>
         <a href="#contact">Contacto</a>
       </nav>
 
-      <a class="btn btn-ghost" href="#contact">Solicitar información</a>
+      <a class="btn btn-ghost desktop-only" href="#contact">
+        Solicitar información
+      </a>
+
+      <!-- HAMBURGER -->
+      <button class="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- MENU MOVIL -->
+    <div class="mobile-menu">
+      <a href="#about">Academia</a>
+      <a href="#pillars">Pilares</a>
+      <a href="#contact">Contacto</a>
+      <a href="#contact" class="btn btn-primary w100">Solicitar información</a>
     </div>
   </header>
 
@@ -34,14 +50,9 @@
     <!-- HERO -->
     <section class="hero" id="home">
       <div class="wrap hero-grid">
-        <div class="hero-copy hero-centered">
+        <div class="hero-centered">
 
-          <!-- LOGO AJUSTADO -->
-          <img
-            src="assets/img/logo.png"
-            alt="Higher Education Academy"
-            class="hero-logo"
-          />
+          <img src="assets/img/logo.png" alt="Higher Education Academy" class="hero-logo" />
 
           <h1>Excelencia académica con valores que trascienden.</h1>
 
@@ -72,26 +83,20 @@
     <!-- PILLARS -->
     <section class="section" id="pillars">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Pilares</h2>
-          <p class="muted">Tres ideas claras. Cero relleno.</p>
-        </div>
+        <h2>Pilares</h2>
 
         <div class="grid">
           <article class="card">
-            <div class="icon">★</div>
             <h3>Excelencia Académica</h3>
             <p>Currículo sólido y acompañamiento continuo.</p>
           </article>
 
           <article class="card">
-            <div class="icon">✦</div>
             <h3>Desarrollo Integral</h3>
             <p>Formación del carácter, liderazgo y valores.</p>
           </article>
 
           <article class="card">
-            <div class="icon">✶</div>
             <h3>Comunidad y Valores</h3>
             <p>Un entorno seguro, disciplinado y respetuoso.</p>
           </article>
@@ -101,53 +106,43 @@
 
     <!-- CONTACT -->
     <section class="cta" id="contact">
-      <div class="wrap cta-grid">
-        <div>
-          <h2>¿Deseas más información?</h2>
-          <p class="muted">
-            Contáctanos y con gusto te orientamos.
-          </p>
-        </div>
-
-        <div class="contact-card">
-          <div class="row">
-            <span class="label">Teléfono</span>
-            <span class="value">(787) 000-0000</span>
-          </div>
-          <div class="row">
-            <span class="label">Email</span>
-            <span class="value">info@highereducationacademy.org</span>
-          </div>
-          <div class="row">
-            <span class="label">Ubicación</span>
-            <span class="value">Puerto Rico</span>
-          </div>
-
-          <a class="btn btn-primary w100" href="#">Solicitar información</a>
-          <p class="tiny">*Datos de ejemplo.</p>
-        </div>
+      <div class="wrap">
+        <h2>¿Deseas más información?</h2>
+        <p class="muted">Contáctanos y con gusto te orientamos.</p>
       </div>
     </section>
   </main>
 
   <footer class="foot">
-    <div class="wrap foot-grid">
-      <div class="foot-left">
-        <span class="foot-mark">HEA</span>
-        <span class="muted">Higher Education Academy</span>
-      </div>
-      <div class="foot-links">
-        <a href="#home">Inicio</a>
-        <a href="#pillars">Pilares</a>
-        <a href="#contact">Contacto</a>
-      </div>
+    <div class="wrap">
+      <span class="muted">© Higher Education Academy</span>
     </div>
   </footer>
 
   <script>
+    // Fade in
     window.addEventListener("load", () =>
       document.body.classList.add("loaded")
     );
+
+    // Hamburger toggle
+    const burger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".mobile-menu");
+
+    burger.addEventListener("click", () => {
+      const open = burger.classList.toggle("open");
+      menu.classList.toggle("show");
+      burger.setAttribute("aria-expanded", open);
+    });
+
+    // Close menu on link click
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        burger.classList.remove("open");
+        menu.classList.remove("show");
+        burger.setAttribute("aria-expanded", "false");
+      });
+    });
   </script>
 </body>
 </html>
