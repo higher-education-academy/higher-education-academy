@@ -319,20 +319,7 @@
     document.addEventListener("keydown", (e) => {
       if(e.key === "Escape") closeMenu();
     });
-    <script>
-  // Fade-in
-  window.addEventListener("load", () => document.body.classList.add("loaded"));
-
-  // ✅ Siempre arriba al recargar (ignora #hash)
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-  }
-  window.addEventListener("beforeunload", () => {
-    window.scrollTo(0, 0);
-  });
-
-  // Mobile menu toggle...
-</script>
+   
 
   </script>
 </body>
