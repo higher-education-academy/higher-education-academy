@@ -11,43 +11,26 @@
 </head>
 
 <body>
-  <!-- Decorative background layers -->
-  <div class="bg" aria-hidden="true">
-    <span class="orb o1"></span>
-    <span class="orb o2"></span>
-    <span class="orb o3"></span>
-    <span class="grid"></span>
-    <span class="vignette"></span>
-  </div>
+  <div class="bg"></div>
 
-  <!-- TOP BAR -->
-  <header class="top" role="banner">
+  <!-- ================= HEADER ================= -->
+  <header class="top">
     <div class="wrap top-row">
-      <a class="brand" href="#home" aria-label="Higher Education Academy">
-        Higher Education Academy
-      </a>
+      <a class="brand" href="#home">Higher Education Academy</a>
 
-      <!-- Desktop nav -->
-      <nav class="nav" aria-label="Navegación principal">
+      <nav class="nav">
         <a href="#about">Academia</a>
         <a href="#eagles">Eagles Basketball</a>
         <a href="#business">Business Kids</a>
         <a class="nav-cta" href="#contact">Solicitar información</a>
       </nav>
 
-      <!-- Mobile hamburger -->
-      <button class="hamburger" type="button"
-        aria-label="Abrir menú"
-        aria-expanded="false"
-        aria-controls="mobileMenu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
     </div>
 
-    <!-- MOBILE MENU -->
-    <nav id="mobileMenu" class="mobile-menu" aria-label="Menú móvil">
+    <nav class="mobile-menu">
       <a href="#about">Academia</a>
       <a href="#eagles">Eagles Basketball</a>
       <a href="#business">Business Kids</a>
@@ -55,38 +38,24 @@
     </nav>
   </header>
 
+  <!-- ================= MAIN ================= -->
   <main>
+
     <!-- HERO -->
     <section class="hero" id="home">
-      <div class="wrap hero-grid">
-        <div class="hero-centered">
-            <img src="assets/img/logo.png" alt="Higher Education Academy" class="hero-logo" />
+      <div class="wrap hero-centered">
+        <img src="assets/img/logo.png" alt="Higher Education Academy" class="hero-logo" />
 
-          <h1>Excelencia académica con valores que trascienden.</h1>
+        <h1>Excelencia académica con valores que trascienden.</h1>
 
-          <p class="lead">
-            Una experiencia educativa enfocada en el crecimiento integral, el liderazgo y la preparación para el futuro.
-          </p>
+        <p class="lead">
+          Una experiencia educativa enfocada en el crecimiento integral,
+          el liderazgo y la preparación para el futuro.
+        </p>
 
-          <div class="actions">
-            <a class="btn btn-primary" href="#contact">Contáctanos</a>
-            <a class="btn btn-soft" href="#about">Ver más</a>
-          </div>
-
-          <div class="hero-stats" aria-label="Indicadores">
-            <div class="stat">
-              <span class="stat-num">K–12</span>
-              <span class="stat-label">Enfoque integral</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">Valores</span>
-              <span class="stat-label">Disciplina y carácter</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">Futuro</span>
-              <span class="stat-label">Liderazgo y metas</span>
-            </div>
-          </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Contáctanos</a>
+          <a class="btn btn-soft" href="#about">Ver más</a>
         </div>
       </div>
     </section>
@@ -94,233 +63,100 @@
     <!-- ABOUT -->
     <section class="section" id="about">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Academia</h2>
-            <p class="muted">
-              Educación enfocada en el desarrollo académico, humano y ético de cada estudiante.
-            </p>
-          </div>
-          <span class="pill">Programa académico</span>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="icon" aria-hidden="true">🎓</div>
-            <h3>Excelencia</h3>
-            <p class="muted">Currículo sólido, hábitos de estudio y apoyo constante para lograr resultados.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">🧭</div>
-            <h3>Valores</h3>
-            <p class="muted">Respeto, responsabilidad y carácter como base para la vida y el éxito.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">🚀</div>
-            <h3>Futuro</h3>
-            <p class="muted">Liderazgo, metas claras y preparación para los próximos pasos académicos.</p>
-          </article>
-        </div>
+        <h2>Academia</h2>
+        <p class="muted">
+          Educación enfocada en el desarrollo académico, humano y ético de cada estudiante.
+        </p>
       </div>
     </section>
 
     <!-- EAGLES -->
     <section class="section" id="eagles">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Eagles Basketball</h2>
-            <p class="muted">
-              Disciplina, trabajo en equipo y rendimiento deportivo con propósito.
-            </p>
-          </div>
-          <span class="pill">Programa deportivo</span>
-        </div>
-
-        <div class="split">
-          <div class="panel">
-            <h3>Entrenamientos</h3>
-            <p class="muted">
-              Horarios, categorías, requisitos y comunicación directa para padres y estudiantes.
-            </p>
-            <ul class="list">
-              <li>Rutinas estructuradas y seguimiento</li>
-              <li>Enfoque en fundamentos y estrategia</li>
-              <li>Condición física y prevención</li>
-            </ul>
-            <a class="btn btn-soft" href="#contact">Solicitar detalles</a>
-          </div>
-
-          <div class="panel panel-glow">
-            <h3>Logros & calendario</h3>
-            <p class="muted">
-              Aquí puedes colocar resultados, torneos, fotos y calendario de juegos.
-            </p>
-            <div class="mini-grid">
-              <div class="mini">
-                <span class="mini-top">Torneos</span>
-                <span class="mini-big">2026</span>
-              </div>
-              <div class="mini">
-                <span class="mini-top">Equipo</span>
-                <span class="mini-big">Eagles</span>
-              </div>
-              <div class="mini">
-                <span class="mini-top">Valores</span>
-                <span class="mini-big">Disciplina</span>
-              </div>
-              <div class="mini">
-                <span class="mini-top">Meta</span>
-                <span class="mini-big">Rendimiento</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h2>Eagles Basketball</h2>
+        <p class="muted">
+          Disciplina, trabajo en equipo y desarrollo deportivo.
+        </p>
       </div>
     </section>
 
-    <!-- BUSINESS KIDS -->
+    <!-- BUSINESS -->
     <section class="section" id="business">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Business Kids</h2>
-            <p class="muted">
-              Emprendimiento, creatividad y liderazgo para formar estudiantes con visión.
-            </p>
-          </div>
-          <span class="pill">Emprendimiento</span>
-        </div>
-
-        <div class="cards cards-2">
-          <article class="card">
-            <div class="icon" aria-hidden="true">💡</div>
-            <h3>Ideas a acción</h3>
-            <p class="muted">Los estudiantes convierten ideas en proyectos, con mentoría y objetivos claros.</p>
-            <ul class="list">
-              <li>Modelo simple de negocio</li>
-              <li>Presentaciones y comunicación</li>
-              <li>Trabajo en equipo</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">📈</div>
-            <h3>Habilidades reales</h3>
-            <p class="muted">Planificación, finanzas básicas, liderazgo y responsabilidad.</p>
-            <ul class="list">
-              <li>Metas y hábitos</li>
-              <li>Organización y productividad</li>
-              <li>Ética y valores</li>
-            </ul>
-          </article>
-        </div>
+        <h2>Business Kids</h2>
+        <p class="muted">
+          Programa de emprendimiento y liderazgo para estudiantes.
+        </p>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="cta" id="contact">
-      <div class="wrap cta-grid">
-        <div class="cta-copy">
-          <h2>Solicitar información</h2>
-          <p class="muted">
-            Completa el formulario y te contactamos. Si prefieres, también puedes llamar o escribir por email.
-          </p>
+      <div class="wrap">
+        <h2>Solicitar información</h2>
+        <p class="muted">Contáctanos y con gusto te orientamos.</p>
 
-          <div class="contact-lines">
-            <div class="line">
-              <span class="label">Teléfono</span>
-              <a class="value link" href="tel:+17870000000">(787) 000-0000</a>
-            </div>
-            <div class="line">
-              <span class="label">Email</span>
-              <a class="value link" href="mailto:info@highereducationacademy.org">info@highereducationacademy.org</a>
-            </div>
-            <div class="line">
-              <span class="label">Ubicación</span>
-              <span class="value">Puerto Rico</span>
-            </div>
-          </div>
-
-          <p class="tiny">*Datos de ejemplo. Sustitúyelos por los reales.</p>
+        <div class="line">
+          <span>Teléfono</span>
+          <span>(787) 000-0000</span>
+        </div>
+        <div class="line">
+          <span>Email</span>
+          <span>info@highereducationacademy.org</span>
+        </div>
+        <div class="line">
+          <span>Ubicación</span>
+          <span>Puerto Rico</span>
         </div>
 
-        <form class="form card" action="mailto:info@highereducationacademy.org" method="post" enctype="text/plain">
-          <h3>Enviar solicitud</h3>
-
-          <label class="field">
-            <span>Nombre</span>
-            <input name="Nombre" type="text" placeholder="Tu nombre" required />
-          </label>
-
-          <label class="field">
-            <span>Email</span>
-            <input name="Email" type="email" placeholder="tucorreo@email.com" required />
-          </label>
-
-          <label class="field">
-            <span>Interés</span>
-            <select name="Interés" required>
-              <option value="" selected disabled>Selecciona una opción</option>
-              <option>Academia</option>
-              <option>Eagles Basketball</option>
-              <option>Business Kids</option>
-            </select>
-          </label>
-
-          <label class="field">
-            <span>Mensaje</span>
-            <textarea name="Mensaje" rows="4" placeholder="Cuéntanos qué necesitas..."></textarea>
-          </label>
-
-          <button class="btn btn-primary w100" type="submit">Enviar</button>
-          <p class="tiny">Se abrirá tu app de correo para enviar el mensaje.</p>
-        </form>
+        <a class="btn btn-primary" href="mailto:info@highereducationacademy.org">
+          Enviar solicitud
+        </a>
       </div>
     </section>
+
   </main>
 
+  <!-- ================= FOOTER ================= -->
   <footer class="foot">
     <div class="wrap foot-row">
       <span class="muted">© <span id="year"></span> Higher Education Academy</span>
-      <a class="muted link" href="#home">Volver arriba ↑</a>
+      <a href="#home" class="muted">Volver arriba ↑</a>
     </div>
   </footer>
 
+  <!-- ================= SCRIPT (SEGURO) ================= -->
   <script>
-    // Fade-in
-    window.addEventListener("load", () => document.body.classList.add("loaded"));
+    // Fade in
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+      window.scrollTo(0, 0);
+    });
 
-    // Year
+    // Año automático
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
+    // Evitar restauración rara de scroll
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    // Menú móvil
     const burger = document.querySelector(".hamburger");
     const menu = document.querySelector(".mobile-menu");
 
-    function closeMenu(){
-      burger.classList.remove("open");
-      menu.classList.remove("show");
-      burger.setAttribute("aria-expanded", "false");
-    }
-
     burger.addEventListener("click", () => {
-      const isOpen = burger.classList.toggle("open");
+      burger.classList.toggle("open");
       menu.classList.toggle("show");
-      burger.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // Close on click
-    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
-
-    // Close on Escape
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape") closeMenu();
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        burger.classList.remove("open");
+        menu.classList.remove("show");
+      });
     });
-    
-
   </script>
+
 </body>
 </html>
