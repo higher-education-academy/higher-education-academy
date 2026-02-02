@@ -1,37 +1,56 @@
-/* ===== Asegura capas: bg atrás, lluvia encima ===== */
-.bg{ z-index:-2 !important; }      /* solo mueve el fondo 1 capa atrás */
+/* ===== CAPAS ===== */
+.bg{ z-index:-2 !important; }
+
 .gold-rain{
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:-1;                      /* queda entre bg (-2) y contenido */
+  z-index:-1;
   overflow:hidden;
 }
 
-/* ===== Dots más visibles ===== */
-.gold-rain::before,
+/* ===== Capa 1: dispersión grande ===== */
+.gold-rain::before{
+  content:"";
+  position:absolute;
+  inset:-50% 0;
+  background:
+    radial-gradient(circle at 7% 108%,  rgba(242,193,78,.30) 0 2.2px, transparent 3.8px),
+    radial-gradient(circle at 19% 121%, rgba(212,175,55,.26) 0 1.6px, transparent 3.4px),
+    radial-gradient(circle at 33% 114%, rgba(242,193,78,.22) 0 2px,   transparent 3.6px),
+    radial-gradient(circle at 48% 132%, rgba(212,175,55,.28) 0 1.4px, transparent 3.2px),
+    radial-gradient(circle at 61% 109%, rgba(242,193,78,.24) 0 1.8px, transparent 3.4px),
+    radial-gradient(circle at 77% 125%, rgba(212,175,55,.20) 0 2.1px, transparent 3.7px),
+    radial-gradient(circle at 92% 116%, rgba(242,193,78,.18) 0 1.5px, transparent 3.3px);
+  background-size: 260px 260px;
+  animation: goldUpA 38s linear infinite;
+  opacity:.9;
+}
+
+/* ===== Capa 2: dispersión pequeña (desfasada) ===== */
 .gold-rain::after{
   content:"";
   position:absolute;
-  inset:-40% 0;
+  inset:-60% 0;
   background:
-    radial-gradient(circle, rgba(242,193,78,.38) 0 2.2px, transparent 3.6px),
-    radial-gradient(circle, rgba(212,175,55,.32) 0 1.8px, transparent 3.4px),
-    radial-gradient(circle, rgba(242,193,78,.26) 0 1.4px, transparent 3.2px);
-  background-size: 140px 140px;
-  animation: goldUp 26s linear infinite;
-  filter: blur(.15px);
-  opacity:.95;
+    radial-gradient(circle at 12% 118%, rgba(212,175,55,.22) 0 1.4px, transparent 3px),
+    radial-gradient(circle at 27% 133%, rgba(242,193,78,.20) 0 1.2px, transparent 3px),
+    radial-gradient(circle at 41% 111%, rgba(212,175,55,.18) 0 1.6px, transparent 3.2px),
+    radial-gradient(circle at 56% 129%, rgba(242,193,78,.16) 0 1.3px, transparent 3px),
+    radial-gradient(circle at 69% 115%, rgba(212,175,55,.17) 0 1.5px, transparent 3.1px),
+    radial-gradient(circle at 83% 138%, rgba(242,193,78,.14) 0 1.2px, transparent 3px);
+  background-size: 170px 170px;
+  animation: goldUpB 52s linear infinite;
+  opacity:.6;
 }
 
-/* segunda capa para densidad + parallax */
-.gold-rain::after{
-  background-size: 95px 95px;
-  animation-duration: 34s;
-  opacity:.55;
+/* ===== Animaciones (velocidades distintas) ===== */
+@keyframes goldUpA{
+  from{ transform: translateY(55%) translateX(0); }
+  to  { transform: translateY(-55%) translateX(0); }
 }
 
-@keyframes goldUp{
-  from{ transform: translateY(55%); }
-  to{ transform: translateY(-55%); }
+@keyframes goldUpB{
+  from{ transform: translateY(65%) translateX(0); }
+  to  { transform: translateY(-65%) translateX(0); }
 }
