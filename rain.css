@@ -18,7 +18,7 @@
   width:1.6px;
   height:1.6px;
   border-radius:999px;
-  background: rgba(242,193,78,.35);
+background: rgba(255, 215, 80, .45); /* amarillo más puro */
   box-shadow:
     /* fila 1 */
     2vw 110vh, 5vw 130vh, 8vw 95vh, 11vw 150vh, 14vw 120vh,
@@ -50,7 +50,7 @@
   width:1.2px;
   height:1.2px;
   border-radius:999px;
-  background: rgba(212,175,55,.22);
+background: rgba(255, 220, 120, .35); /* amarillo claro */
   box-shadow:
     4vw 120vh, 10vw 155vh, 16vw 140vh, 22vw 170vh, 28vw 130vh,
     34vw 160vh, 40vw 145vh, 46vw 180vh, 52vw 135vh, 58vw 165vh,
