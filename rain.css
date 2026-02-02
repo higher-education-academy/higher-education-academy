@@ -5,8 +5,9 @@
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:-1;
+  z-index:1;           /* 👈 visible siempre */
   overflow:hidden;
+  opacity:.85;         /* no tapa tanto */
 }
 
 /* ===== Capa densa ===== */
@@ -18,31 +19,25 @@
   width:1.6px;
   height:1.6px;
   border-radius:999px;
-  background: rgba(255, 215, 80, .45); /* amarillo más puro */
+  background: rgba(255, 215, 80, .45);
   box-shadow:
-    /* fila 1 */
     2vw 110vh, 5vw 130vh, 8vw 95vh, 11vw 150vh, 14vw 120vh,
     17vw 140vh, 20vw 100vh, 23vw 160vh, 26vw 115vh, 29vw 135vh,
     32vw 105vh, 35vw 155vh, 38vw 125vh, 41vw 145vh, 44vw 95vh,
     47vw 165vh, 50vw 110vh, 53vw 150vh, 56vw 120vh, 59vw 140vh,
-
-    /* fila 2 */
     62vw 100vh, 65vw 160vh, 68vw 115vh, 71vw 145vh, 74vw 95vh,
     77vw 155vh, 80vw 120vh, 83vw 140vh, 86vw 105vh, 89vw 165vh,
     92vw 110vh, 95vw 150vh, 98vw 125vh,
-
-    /* extra random */
     6vw 180vh, 12vw 175vh, 18vw 190vh, 24vw 170vh, 30vw 185vh,
     36vw 178vh, 42vw 192vh, 48vw 170vh, 54vw 188vh, 60vw 176vh,
     66vw 190vh, 72vw 180vh, 78vw 195vh, 84vw 172vh, 90vw 188vh,
     96vw 182vh;
   animation: rainUpDense 26s linear infinite;
-  opacity:.85;
   filter: blur(.15px);
   will-change: transform;
 }
 
-/* ===== Segunda capa (parallax suave) ===== */
+/* ===== Segunda capa ===== */
 .gold-rain::after{
   content:"";
   position:absolute;
@@ -51,25 +46,24 @@
   width:1.2px;
   height:1.2px;
   border-radius:999px;
-  background: rgba(255, 220, 120, .35); /* amarillo claro */
+  background: rgba(255, 220, 120, .35);
   box-shadow:
     4vw 120vh, 10vw 155vh, 16vw 140vh, 22vw 170vh, 28vw 130vh,
     34vw 160vh, 40vw 145vh, 46vw 180vh, 52vw 135vh, 58vw 165vh,
     64vw 150vh, 70vw 175vh, 76vw 140vh, 82vw 170vh, 88vw 155vh,
     94vw 180vh;
   animation: rainUpSoft 38s linear infinite;
-  opacity:.6;
   filter: blur(.25px);
   will-change: transform;
 }
 
-/* ===== Animaciones (recorrido más largo para que no se note el reset) ===== */
+/* ===== Animaciones (sin pausa visible) ===== */
 @keyframes rainUpDense{
-  from{ transform: translateY(60vh); }
+  from{ transform: translateY(0); }
   to  { transform: translateY(-160vh); }
 }
 
 @keyframes rainUpSoft{
-  from{ transform: translateY(80vh); }
-  to  { transform: translateY(-200vh); }
+  from{ transform: translateY(0); }
+  to  { transform: translateY(-180vh); }
 }
