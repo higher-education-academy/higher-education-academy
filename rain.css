@@ -1,29 +1,37 @@
-/* Gold dots rising (no layout changes) */
+/* ===== Asegura capas: bg atrás, lluvia encima ===== */
+.bg{ z-index:-2 !important; }      /* solo mueve el fondo 1 capa atrás */
 .gold-rain{
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:0;        /* encima del .bg (z:-1), debajo del contenido */
+  z-index:-1;                      /* queda entre bg (-2) y contenido */
   overflow:hidden;
 }
 
-.gold-rain::before{
+/* ===== Dots más visibles ===== */
+.gold-rain::before,
+.gold-rain::after{
   content:"";
   position:absolute;
-  inset:-35% 0;
+  inset:-40% 0;
   background:
-    radial-gradient(circle at 10% 110%, rgba(212,175,55,.20) 0 2px, transparent 3px),
-    radial-gradient(circle at 25% 120%, rgba(242,193,78,.16) 0 1.5px, transparent 3px),
-    radial-gradient(circle at 40% 115%, rgba(212,175,55,.18) 0 1.8px, transparent 3px),
-    radial-gradient(circle at 55% 130%, rgba(242,193,78,.14) 0 2px, transparent 3px),
-    radial-gradient(circle at 70% 112%, rgba(212,175,55,.17) 0 1.6px, transparent 3px),
-    radial-gradient(circle at 85% 125%, rgba(242,193,78,.13) 0 2px, transparent 3px);
-  background-size: 220px 220px;
-  animation: goldUp 34s linear infinite;
-  opacity:.8;
+    radial-gradient(circle, rgba(242,193,78,.38) 0 2.2px, transparent 3.6px),
+    radial-gradient(circle, rgba(212,175,55,.32) 0 1.8px, transparent 3.4px),
+    radial-gradient(circle, rgba(242,193,78,.26) 0 1.4px, transparent 3.2px);
+  background-size: 140px 140px;
+  animation: goldUp 26s linear infinite;
+  filter: blur(.15px);
+  opacity:.95;
+}
+
+/* segunda capa para densidad + parallax */
+.gold-rain::after{
+  background-size: 95px 95px;
+  animation-duration: 34s;
+  opacity:.55;
 }
 
 @keyframes goldUp{
-  from{ transform: translateY(45%); }
-  to{ transform: translateY(-45%); }
+  from{ transform: translateY(55%); }
+  to{ transform: translateY(-55%); }
 }
