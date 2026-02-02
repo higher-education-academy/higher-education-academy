@@ -1,4 +1,4 @@
-/* ===== CAPAS ===== */
+/* ===== Capas correctas ===== */
 .bg{ z-index:-2 !important; }
 
 .gold-rain{
@@ -9,48 +9,29 @@
   overflow:hidden;
 }
 
-/* ===== Capa 1: dispersión grande ===== */
+/* ===== Capa principal (visible siempre) ===== */
 .gold-rain::before{
   content:"";
   position:absolute;
-  inset:-50% 0;
+  top:-30%;
+  left:0;
+  right:0;
+  bottom:-30%;
   background:
-    radial-gradient(circle at 7% 108%,  rgba(242,193,78,.30) 0 2.2px, transparent 3.8px),
-    radial-gradient(circle at 19% 121%, rgba(212,175,55,.26) 0 1.6px, transparent 3.4px),
-    radial-gradient(circle at 33% 114%, rgba(242,193,78,.22) 0 2px,   transparent 3.6px),
-    radial-gradient(circle at 48% 132%, rgba(212,175,55,.28) 0 1.4px, transparent 3.2px),
-    radial-gradient(circle at 61% 109%, rgba(242,193,78,.24) 0 1.8px, transparent 3.4px),
-    radial-gradient(circle at 77% 125%, rgba(212,175,55,.20) 0 2.1px, transparent 3.7px),
-    radial-gradient(circle at 92% 116%, rgba(242,193,78,.18) 0 1.5px, transparent 3.3px);
-  background-size: 260px 260px;
-  animation: goldUpA 38s linear infinite;
+    radial-gradient(circle at 8% 95%,  rgba(242,193,78,.32) 0 2px, transparent 3.5px),
+    radial-gradient(circle at 22% 110%, rgba(212,175,55,.28) 0 1.6px, transparent 3.2px),
+    radial-gradient(circle at 37% 100%, rgba(242,193,78,.24) 0 1.9px, transparent 3.4px),
+    radial-gradient(circle at 52% 115%, rgba(212,175,55,.30) 0 1.4px, transparent 3px),
+    radial-gradient(circle at 67% 98%,  rgba(242,193,78,.26) 0 1.8px, transparent 3.3px),
+    radial-gradient(circle at 81% 112%, rgba(212,175,55,.22) 0 2px, transparent 3.6px),
+    radial-gradient(circle at 94% 102%, rgba(242,193,78,.20) 0 1.5px, transparent 3.1px);
+  background-size: 220px 220px;
+  animation: goldUp 40s linear infinite;
   opacity:.9;
 }
 
-/* ===== Capa 2: dispersión pequeña (desfasada) ===== */
-.gold-rain::after{
-  content:"";
-  position:absolute;
-  inset:-60% 0;
-  background:
-    radial-gradient(circle at 12% 118%, rgba(212,175,55,.22) 0 1.4px, transparent 3px),
-    radial-gradient(circle at 27% 133%, rgba(242,193,78,.20) 0 1.2px, transparent 3px),
-    radial-gradient(circle at 41% 111%, rgba(212,175,55,.18) 0 1.6px, transparent 3.2px),
-    radial-gradient(circle at 56% 129%, rgba(242,193,78,.16) 0 1.3px, transparent 3px),
-    radial-gradient(circle at 69% 115%, rgba(212,175,55,.17) 0 1.5px, transparent 3.1px),
-    radial-gradient(circle at 83% 138%, rgba(242,193,78,.14) 0 1.2px, transparent 3px);
-  background-size: 170px 170px;
-  animation: goldUpB 52s linear infinite;
-  opacity:.6;
-}
-
-/* ===== Animaciones (velocidades distintas) ===== */
-@keyframes goldUpA{
-  from{ transform: translateY(55%) translateX(0); }
-  to  { transform: translateY(-55%) translateX(0); }
-}
-
-@keyframes goldUpB{
-  from{ transform: translateY(65%) translateX(0); }
-  to  { transform: translateY(-65%) translateX(0); }
+/* ===== Animación simple y segura ===== */
+@keyframes goldUp{
+  from{ transform: translateY(35%); }
+  to  { transform: translateY(-35%); }
 }
