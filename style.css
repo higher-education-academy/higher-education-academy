@@ -477,3 +477,25 @@ input:focus,select:focus,textarea:focus{
 
 /* Botón */
 .panel .btn{margin-top:6px}
+/* ================= BUSINESS KIDS LOGO ================= */
+.business-logo-wrap{
+  display:flex;
+  justify-content:center;
+  margin:8px auto 22px;
+}
+
+.business-logo{
+  display:block;
+  max-width:200px; /* más pequeño que hero y eagles */
+  width:100%;
+  height:auto;
+  margin:0 auto;
+  filter:drop-shadow(0 12px 28px rgba(0,0,0,.45));
+}
+
+@media (min-width:900px){
+  .business-logo{
+    max-width:240px;
+  }
+}
+
