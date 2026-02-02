@@ -5,9 +5,9 @@
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:1;           /* 👈 visible siempre */
+  z-index:1;      /* visible siempre */
   overflow:hidden;
-  opacity:.85;         /* no tapa tanto */
+  opacity:.8;     /* no tapa tanto */
 }
 
 /* ===== Capa densa ===== */
@@ -20,7 +20,15 @@
   height:1.6px;
   border-radius:999px;
   background: rgba(255, 215, 80, .45);
+
   box-shadow:
+    /* en pantalla (10–90vh) para que NO haya pausas */
+    3vw  18vh,  8vw  42vh, 13vw  65vh, 18vw  28vh, 23vw  80vh,
+    28vw  52vh, 33vw  36vh, 38vw  74vh, 43vw  22vh, 48vw  60vh,
+    53vw  44vh, 58vw  86vh, 63vw  30vh, 68vw  70vh, 73vw  50vh,
+    78vw  24vh, 83vw  62vh, 88vw  40vh, 93vw  78vh, 97vw  55vh,
+
+    /* abajo (95–195vh) como ya tenías */
     2vw 110vh, 5vw 130vh, 8vw 95vh, 11vw 150vh, 14vw 120vh,
     17vw 140vh, 20vw 100vh, 23vw 160vh, 26vw 115vh, 29vw 135vh,
     32vw 105vh, 35vw 155vh, 38vw 125vh, 41vw 145vh, 44vw 95vh,
@@ -32,12 +40,13 @@
     36vw 178vh, 42vw 192vh, 48vw 170vh, 54vw 188vh, 60vw 176vh,
     66vw 190vh, 72vw 180vh, 78vw 195vh, 84vw 172vh, 90vw 188vh,
     96vw 182vh;
-  animation: rainUpDense 26s linear infinite;
+
+  animation: rainUpDense 28s linear infinite;
   filter: blur(.15px);
   will-change: transform;
 }
 
-/* ===== Segunda capa ===== */
+/* ===== Segunda capa (más lenta + distinta deriva) ===== */
 .gold-rain::after{
   content:"";
   position:absolute;
@@ -47,23 +56,32 @@
   height:1.2px;
   border-radius:999px;
   background: rgba(255, 220, 120, .35);
+
   box-shadow:
+    /* en pantalla */
+    6vw  26vh, 16vw  58vh, 26vw  34vh, 36vw  82vh, 46vw  48vh,
+    56vw  20vh, 66vw  66vh, 76vw  40vh, 86vw  74vh, 96vw  52vh,
+
+    /* abajo */
     4vw 120vh, 10vw 155vh, 16vw 140vh, 22vw 170vh, 28vw 130vh,
     34vw 160vh, 40vw 145vh, 46vw 180vh, 52vw 135vh, 58vw 165vh,
     64vw 150vh, 70vw 175vh, 76vw 140vh, 82vw 170vh, 88vw 155vh,
     94vw 180vh;
-  animation: rainUpSoft 38s linear infinite;
+
+  animation: rainUpSoft 42s linear infinite;
   filter: blur(.25px);
   will-change: transform;
 }
 
-/* ===== Animaciones (sin pausa visible) ===== */
+/* ===== Animaciones: suben + deriva lateral (no recto) ===== */
 @keyframes rainUpDense{
-  from{ transform: translateY(0); }
-  to  { transform: translateY(-160vh); }
+  0%   { transform: translateY(0) translateX(0); }
+  50%  { transform: translateY(-80vh) translateX(1.6vw); }
+  100% { transform: translateY(-160vh) translateX(-1.2vw); }
 }
 
 @keyframes rainUpSoft{
-  from{ transform: translateY(0); }
-  to  { transform: translateY(-180vh); }
+  0%   { transform: translateY(0) translateX(0); }
+  50%  { transform: translateY(-90vh) translateX(-1.2vw); }
+  100% { transform: translateY(-180vh) translateX(1.0vw); }
 }
