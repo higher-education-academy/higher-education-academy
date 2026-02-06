@@ -567,3 +567,15 @@ input:focus,select:focus,textarea:focus{
   align-self:center;
   margin:0 0 12px 0;
 }
+/* ===== CONTACT: separar botones Email / WhatsApp ===== */
+#contact .form .btn{
+  margin-top: 12px;
+}
+
+/* opcional: un poco más de aire en móvil */
+@media (max-width:760px){
+  #contact .form .btn{
+    margin-top: 14px;
+  }
+}
+
