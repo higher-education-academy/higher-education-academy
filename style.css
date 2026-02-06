@@ -512,21 +512,11 @@ input:focus,select:focus,textarea:focus{
   text-align:center;
 }
 
-/* ================= BUSINESS KIDS LOGO (DESKTOP) ================= */
-@media (min-width:900px){
-  .business-logo{
-    max-width:240px;
-  }
-  /* FIX real: dar ancho completo al bloque del título en Eagles para poder centrar */
+/* FIX real: dar ancho completo al bloque del título en Eagles para poder centrar */
 #eagles .section-head > div{
   width:100%;
 }
 
-/* Centrar solo el pill (sin cambiar el h2) */
-#eagles .pill-center{
-  width:100%;
-  text-align:center;
-}
 /* ===== FIX DEFINITIVO: centrar pill en móvil SOLO en Eagles ===== */
 @media (max-width:760px){
   #eagles .section-head{
@@ -540,4 +530,9 @@ input:focus,select:focus,textarea:focus{
   }
 }
 
+/* ================= BUSINESS KIDS LOGO (DESKTOP) ================= */
+@media (min-width:900px){
+  .business-logo{
+    max-width:240px;
+  }
 }
