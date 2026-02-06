@@ -527,5 +527,17 @@ input:focus,select:focus,textarea:focus{
   width:100%;
   text-align:center;
 }
+/* ===== FIX DEFINITIVO: centrar pill en móvil SOLO en Eagles ===== */
+@media (max-width:760px){
+  #eagles .section-head{
+    align-items:center;
+  }
+
+  #eagles .pill-center{
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+}
 
 }
