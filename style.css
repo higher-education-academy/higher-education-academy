@@ -536,6 +536,7 @@ input:focus,select:focus,textarea:focus{
     max-width:240px;
   }
 }
+
 /* ===== EAGLES: botón Galería grande y centrado ===== */
 #eagles .mini-grid{
   display:flex;
@@ -550,17 +551,19 @@ input:focus,select:focus,textarea:focus{
   justify-content:center;
   text-align:center;
 }
-/* ===== BUSINESS KIDS: pill arriba y centrado, título a la izquierda ===== */
+
+/* ===== BUSINESS KIDS: pill arriba y centrado, título a la izquierda (REPARADO) ===== */
 #business .section-head{
-  align-items:flex-start;   /* fuerza alineación izquierda del contenido */
+  flex-direction:column;
+  align-items:flex-start;
 }
 
 #business .section-head > div{
   width:100%;
 }
 
-#business .section-head .pill{
-  order:-1;                 /* sube el pill */
-  align-self:center;        /* centra SOLO el pill */
-  margin-bottom:12px;
+#business .section-head > .pill{
+  order:-1;
+  align-self:center;
+  margin:0 0 12px 0;
 }
