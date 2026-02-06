@@ -550,27 +550,17 @@ input:focus,select:focus,textarea:focus{
   justify-content:center;
   text-align:center;
 }
-/* ===== BUSINESS KIDS: pill centrado y arriba ===== */
+/* ===== BUSINESS KIDS: pill arriba y centrado, título a la izquierda ===== */
 #business .section-head{
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items:flex-start;   /* fuerza alineación izquierda del contenido */
 }
 
-#business .section-head .pill{
-  order: -1;              /* sube el pill arriba */
-  margin-bottom: 12px;    /* separación del título */
-}
-/* ===== BUSINESS KIDS: pill como Eagles (centrado arriba, título normal) ===== */
 #business .section-head > div{
   width:100%;
 }
 
 #business .section-head .pill{
-  order:-1;               /* sube el pill arriba */
-  display:flex;
-  justify-content:center; /* centra SOLO el pill */
+  order:-1;                 /* sube el pill */
+  align-self:center;        /* centra SOLO el pill */
   margin-bottom:12px;
 }
-
-
