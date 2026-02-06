@@ -477,6 +477,7 @@ input:focus,select:focus,textarea:focus{
 
 /* Botón */
 .panel .btn{margin-top:6px}
+
 /* ================= BUSINESS KIDS LOGO ================= */
 .business-logo-wrap{
   display:flex;
@@ -493,23 +494,27 @@ input:focus,select:focus,textarea:focus{
   filter:drop-shadow(0 12px 28px rgba(0,0,0,.45));
 }
 
+/* ================= FIX EAGLES (FUNCIONA EN MÓVIL Y DESKTOP) ================= */
+/* Centra "Programa deportivo" y separa de "Eagles" sin afectar otros pills */
+#eagles .pill-center{
+  text-align:center;
+  margin-bottom:12px;
+}
+#eagles .pill-center .pill{
+  display:inline-flex;
+  margin:0 auto;
+}
+
+/* Si en Logros/Actividades pones un <a class="btn btn-primary w100"> dentro de .mini-grid,
+   esto lo hace ocupar todo el ancho */
+#eagles .mini-grid .btn.w100{
+  width:100%;
+  text-align:center;
+}
+
+/* ================= BUSINESS KIDS LOGO (DESKTOP) ================= */
 @media (min-width:900px){
   .business-logo{
     max-width:240px;
   }
-  /* Eagles: centrar "Programa deportivo" y separarlo de "Eagles" */
-#eagles .pill-center{
-  text-align: center;
-  margin-bottom: 12px;
 }
-#eagles .pill-center .pill{
-  display: inline-flex; /* asegura que se centre bien */
-}
-/* === Eagles: ajuste exacto pedido === */
-#eagles .section-head .pill{
-  display: block;
-  margin: 0 auto 12px auto; /* centrado + separación */
-}
-
-}
-
