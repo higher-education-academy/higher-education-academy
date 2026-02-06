@@ -497,5 +497,14 @@ input:focus,select:focus,textarea:focus{
   .business-logo{
     max-width:240px;
   }
+  /* Eagles: centrar "Programa deportivo" y separarlo de "Eagles" */
+#eagles .pill-center{
+  text-align: center;
+  margin-bottom: 12px;
+}
+#eagles .pill-center .pill{
+  display: inline-flex; /* asegura que se centre bien */
+}
+
 }
 
