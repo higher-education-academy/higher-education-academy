@@ -536,3 +536,18 @@ input:focus,select:focus,textarea:focus{
     max-width:240px;
   }
 }
+/* ===== EAGLES: botón Galería grande y centrado ===== */
+#eagles .mini-grid{
+  display:flex;
+  justify-content:center;
+}
+
+#eagles .mini-grid .btn{
+  font-size:16px;
+  padding:16px 28px;
+  border-radius:999px;
+  min-width:240px;
+  justify-content:center;
+  text-align:center;
+}
+
