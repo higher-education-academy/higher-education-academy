@@ -505,6 +505,11 @@ input:focus,select:focus,textarea:focus{
 #eagles .pill-center .pill{
   display: inline-flex; /* asegura que se centre bien */
 }
+/* === Eagles: ajuste exacto pedido === */
+#eagles .section-head .pill{
+  display: block;
+  margin: 0 auto 12px auto; /* centrado + separación */
+}
 
 }
 
