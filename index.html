@@ -266,7 +266,9 @@
             <textarea name="Mensaje" rows="4" placeholder="Cuéntanos qué necesitas..."></textarea>
           </label>
 
-          <button class="btn btn-primary w100" type="submit">Enviar</button>
+          <button class="btn btn-primary w100" type="submit">Enviar Email</button>
+<button class="btn btn-primary w100" type="button" id="btnWhatsapp">WhatsApp</button>
+
           <p class="tiny">Se abrirá tu app de correo para enviar el mensaje.</p>
         </form>
       </div>
@@ -342,6 +344,38 @@
         });
       });
     });
+      // ===== WhatsApp: recopilar formulario y abrir wa.me =====
+  const btnWhatsapp = document.getElementById("btnWhatsapp");
+  const form = document.querySelector("form.form");
+
+  function getField(selector) {
+    const el = form ? form.querySelector(selector) : null;
+    return el ? el.value.trim() : "";
+  }
+
+  btnWhatsapp?.addEventListener("click", () => {
+    // Campos (usa name=... como en tu HTML)
+    const nombre = getField('input[name="Nombre"]');
+    const email = getField('input[name="Email"]');
+    const interes = getField('select[name="Interés"]');
+    const mensaje = getField('textarea[name="Mensaje"]');
+
+    // Mensaje final
+    const text =
+`Solicitud de información (Higher Education Academy)
+
+Nombre: ${nombre || "-"}
+Email: ${email || "-"}
+Interés: ${interes || "-"}
+Mensaje: ${mensaje || "-"}`;
+
+    // Número en formato internacional (PR = +1)
+    const phone = "19393214571"; // 1 + 9393214571
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+
+    window.open(url, "_blank", "noopener");
+  });
+
   </script>
   <div class="gold-rain" aria-hidden="true"></div>
 
