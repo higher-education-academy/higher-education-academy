@@ -256,7 +256,25 @@
     });
 
     // Default
+// ===== Abrir galería filtrada desde URL (ej: gallery.html#eagles) =====
+function applyFilterFromHash(){
+  const hash = window.location.hash.replace("#","");
+
+  // si el hash coincide con un filtro, úsalo
+  const validFilters = ["eagles","business","eventos","instalaciones"];
+  if(validFilters.includes(hash)){
+    setFilter(hash);
+  }else{
     setFilter("all");
+  }
+}
+
+// aplicar al cargar
+applyFilterFromHash();
+
+// si el usuario cambia el hash manualmente
+window.addEventListener("hashchange", applyFilterFromHash);
+
 
     // Lightbox
     const grid = document.getElementById("galleryGrid");
