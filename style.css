@@ -1092,4 +1092,53 @@ filter: blur(6px);
 .lightbox-close:hover{ transform: translateY(-1px); }
 
 
+/* ===== Gallery: alineación + aire en móvil ===== */
+.gallery-hero .wrap{
+  /* más espacio lateral SOLO en galería */
+  width: min(var(--max), calc(100% - 44px));
+}
+
+.gallery-hero-inner{
+  /* centra el card y evita que se pegue a los bordes */
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ordena el header del card (pill + contador) */
+.gallery-hero-top{
+  align-items: center;
+}
+
+/* filtros: más alineados y con wrap bonito */
+.gallery-filters{
+  justify-content: flex-start;  /* alineado, no “flotando” */
+  gap: 8px;
+}
+
+/* botones de filtro más consistentes */
+.filter-btn{
+  font-size: 13px;
+  padding: 9px 12px;
+  line-height: 1;
+}
+
+/* botones principales: en móvil, uno debajo del otro y full width */
+@media (max-width: 760px){
+  .gallery-hero .wrap{
+    width: min(var(--max), calc(100% - 40px));
+  }
+
+  .gallery-hero-inner{
+    padding: 18px 16px; /* menos “apretado” */
+  }
+
+  .gallery-actions{
+    gap: 10px;
+  }
+
+  .gallery-actions .btn{
+    width: 100%;
+    text-align: center;
+  }
+}
 
