@@ -712,18 +712,16 @@ input:focus,select:focus,textarea:focus{
     transform: scale(1.22);
   }
 }
-/* ===== iPhone FIX (forzado) ===== */
-@media (max-width: 768px){
-  #business.section.business-bg::before{
-    background-position: 50% 12% !important;  /* sube encuadre */
-    transform: scale(1.25) !important;        /* ajusta recorte */
-  }
+/* Desktop */
+#business.business-bg::before{
+  background-image: url("assets/img/businessFoto1.png");
 }
 
-@media (max-width: 430px){
-  #business.section.business-bg::before{
-    background-position: 50% 8% !important;
-    transform: scale(1.32) !important;
+/* Mobile: imagen alternativa */
+@media (max-width: 768px){
+  #business.business-bg::before{
+    background-image: url("assets/img/businessFoto-mobile.png");
+    background-position: center top;
   }
 }
 
