@@ -739,23 +739,35 @@ input:focus,select:focus,textarea:focus{
     transform: scale(1.2) !important;
   }
 }
-/* Parallax sutil: tarjetas se sienten separadas del fondo */
-@media (prefers-reduced-motion: no-preference){
-  #business .card{
-    transform-style: preserve-3d;
-  }
-  #business .card{
-    animation: floaty 6.5s ease-in-out infinite;
-  }
-  #business .cards-2 .card:nth-child(2){
-    animation-delay: -2.8s;
+/* ===== Apple-like scroll reveal (zoom + blur + fade) ===== */
+.card.reveal{
+  opacity: 0;
+  transform: translateY(18px) scale(.975);
+  filter: blur(10px);
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2,.8,.2,1),
+    filter .7s ease;
+  will-change: opacity, transform, filter;
+}
+
+/* Cuando ya está visible */
+.card.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Accesibilidad: si el usuario no quiere animaciones */
+@media (prefers-reduced-motion: reduce){
+  .card.reveal{
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
   }
 }
 
-@keyframes floaty{
-  0%, 100%{ transform: translateY(0px); }
-  50%{ transform: translateY(-8px); }
-}
 
 
 
