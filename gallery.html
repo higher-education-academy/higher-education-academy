@@ -1,159 +1,176 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Galería | Higher Education Academy</title>
-  <meta name="description" content="Galería de fotos — Higher Education Academy." />
-  <meta name="theme-color" content="#0B1E3B" />
+/* ================= GALLERY (FILTER + GRID + LIGHTBOX) ================= */
+.gallery-hero{ padding: 46px 0 10px; }
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="rain.css" />
-</head>
+.gallery-hero-inner{
+  position:relative;
+  overflow:hidden;
+  padding: 18px;
+}
+.gallery-hero-inner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(700px 260px at 20% 0%, rgba(242,193,78,.14), transparent 55%),
+    linear-gradient(180deg, rgba(6,16,34,.55), rgba(6,16,34,.25));
+  pointer-events:none;
+}
+.gallery-hero-inner > *{ position:relative; z-index:1; }
 
-<body>
-  <div class="bg" aria-hidden="true">
-    <span class="orb o1"></span>
-    <span class="orb o2"></span>
-    <span class="orb o3"></span>
-    <span class="grid"></span>
-    <span class="vignette"></span>
-  </div>
+.gallery-hero-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom: 10px;
+}
+.gallery-count{
+  font-weight:900;
+  color: rgba(245,247,250,.78);
+  letter-spacing:.02em;
+}
 
-  <header class="top" role="banner">
-    <div class="wrap top-row">
-      <a class="brand" href="index.html#home" aria-label="Higher Education Academy">
-        Higher Education Academy
-      </a>
+.gallery-title{
+  margin: 6px 0 8px;
+  font-size: clamp(26px, 3.5vw, 44px);
+  line-height: 1.08;
+}
+.gallery-sub{
+  margin: 0 0 14px;
+  line-height: 1.6;
+  max-width: 70ch;
+}
 
-      <nav class="nav" aria-label="Navegación principal">
-        <a href="index.html#eagles">Eagles</a>
-        <a href="index.html#business">Business Kids</a>
-        <a href="gallery.html" aria-current="page">Galería</a>
-        <a href="about.html">Quiénes somos?</a>
-        <a class="nav-cta" href="index.html#contact">Solicitar información</a>
-      </nav>
+.gallery-actions{ display:flex; gap:12px; flex-wrap:wrap; }
 
-      <button class="hamburger" type="button"
-        aria-label="Abrir menú"
-        aria-expanded="false"
-        aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+/* Filters */
+.gallery-filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin: 8px 0 14px;
+}
 
-    <nav id="mobileMenu" class="mobile-menu" aria-label="Menú móvil">
-      <a href="index.html#eagles">Eagles</a>
-      <a href="index.html#business">Business Kids</a>
-      <a href="gallery.html" aria-current="page">Galería</a>
-      <a href="about.html">Quiénes somos?</a>
-      <a class="mobile-cta" href="index.html#contact">Solicitar información</a>
-    </nav>
-  </header>
+.filter-btn{
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  color: rgba(245,247,250,.86);
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.filter-btn:hover{ transform: translateY(-1px); }
 
-  <main>
-    <section class="section" id="top">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Galería</h2>
-            <p class="muted">Elige una categoría para ver fotos. Eagles queda separado del resto.</p>
-          </div>
-          <span class="pill">Categorías</span>
-        </div>
+.filter-btn.is-active{
+  background: linear-gradient(135deg,var(--gold),var(--gold2));
+  color: #0A1630;
+  border-color: transparent;
+}
 
-        <div class="cards cards-2">
-          <article class="card">
-            <h3>Eagles</h3>
-            <p class="muted">Entrenamientos, juegos, logros y eventos del programa deportivo.</p>
-            <div class="mini-grid">
-              <a class="btn btn-primary w100" href="gallery-eagles.html">Abrir Eagles →</a>
-            </div>
-          </article>
+/* Grid */
+.gallery-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
 
-          <article class="card">
-            <h3>Business Kids</h3>
-            <p class="muted">Actividades, talleres, proyectos y eventos de emprendimiento.</p>
-            <div class="mini-grid">
-              <a class="btn btn-primary w100" href="gallery-business.html">Abrir Business Kids →</a>
-            </div>
-          </article>
+.gallery-item{
+  padding:0;
+  border-radius: var(--r2);
+  cursor:pointer;
+  text-align:left;
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--stroke2);
+  overflow:hidden;
+  position:relative;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.gallery-item:hover{
+  transform: translateY(-2px);
+  border-color: rgba(242,193,78,.22);
+  background: rgba(255,255,255,.06);
+}
+.gallery-item img{
+  width:100%;
+  height: 240px;
+  object-fit: cover;
+  display:block;
+  transform: scale(1.01);
+  filter: saturate(.95) contrast(1.05);
+}
 
-          <article class="card">
-            <h3>Eventos escolares</h3>
-            <p class="muted">Actividades generales, ferias, celebraciones y experiencias.</p>
-            <div class="mini-grid">
-              <a class="btn btn-primary w100" href="gallery-eventos.html">Abrir Eventos →</a>
-            </div>
-          </article>
+/* Tag */
+.gallery-item .tag{
+  position:absolute;
+  left:12px;
+  bottom:12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(245,247,250,.92);
+  background: rgba(10,18,40,.62);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 
-          <article class="card">
-            <h3>Instalaciones</h3>
-            <p class="muted">Salones, facilidades, áreas deportivas y espacios del campus.</p>
-            <div class="mini-grid">
-              <a class="btn btn-primary w100" href="gallery-instalaciones.html">Abrir Instalaciones →</a>
-            </div>
-          </article>
-        </div>
+/* Hidden for filter */
+.gallery-item.is-hidden{
+  display:none !important;
+}
 
-        <p class="tiny">Puedes crear/ocultar categorías según lo necesites.</p>
-      </div>
-    </section>
-  </main>
+/* Responsive columns */
+@media (min-width: 680px){
+  .gallery-grid{ grid-template-columns: 1fr 1fr; }
+  .gallery-item img{ height: 260px; }
+}
+@media (min-width: 980px){
+  .gallery-grid{ grid-template-columns: 1fr 1fr 1fr; }
+  .gallery-item img{ height: 240px; }
+}
 
-  <footer class="foot">
-    <div class="wrap foot-row">
-      <span class="muted">
-        © <span id="year"></span>
-        <a href="https://www.raymonddevelop.com" target="_blank" rel="noopener">RaymondDevelop</a>
-      </span>
-      <a class="muted link" href="#top">Volver arriba ↑</a>
-    </div>
-  </footer>
+/* Lightbox */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.72);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+  z-index: 200;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.lightbox.show{ display:flex; }
 
-  <script>
-    window.addEventListener("load", () => document.body.classList.add("loaded"));
-    document.getElementById("year").textContent = new Date().getFullYear();
+.lightbox-img{
+  max-width: min(1100px, 96vw);
+  max-height: 82vh;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 28px 80px rgba(0,0,0,.55);
+  background: rgba(255,255,255,.03);
+}
 
-    const burger = document.querySelector(".hamburger");
-    const menu = document.querySelector(".mobile-menu");
-
-    function closeMenu(){
-      burger.classList.remove("open");
-      menu.classList.remove("show");
-      burger.setAttribute("aria-expanded", "false");
-    }
-
-    burger.addEventListener("click", () => {
-      const isOpen = burger.classList.toggle("open");
-      menu.classList.toggle("show");
-      burger.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
-    document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeMenu(); });
-
-    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-    window.addEventListener("load", () => window.scrollTo(0,0));
-
-    const cards = document.querySelectorAll(".card");
-    cards.forEach((c, i) => {
-      c.classList.add("reveal");
-      c.style.transitionDelay = `${Math.min(i * 80, 240)}ms`;
-    });
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("is-visible");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.18, rootMargin: "0px 0px -10% 0px" });
-
-    cards.forEach((c) => io.observe(c));
-  </script>
-
-  <div class="gold-rain" aria-hidden="true"></div>
-</body>
-</html>
+.lightbox-close{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(10,18,40,.55);
+  color: rgba(245,247,250,.92);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 210;
+}
+.lightbox-close:hover{ transform: translateY(-1px); }
