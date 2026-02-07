@@ -634,3 +634,66 @@ input:focus,select:focus,textarea:focus{
   .map-embed{ height:210px; }
   .map-cta{ left:12px; bottom:12px; }
 }
+/* ===== Business Kids con foto de fondo ===== */
+#business.business-bg{
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  margin: 18px auto;
+  max-width: 1120px; /* igual al wrap visual */
+}
+
+/* Fondo con imagen */
+#business.business-bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: url("assets/img/businessFoto1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.03); /* evita lineitas en bordes */
+  filter: saturate(.95) contrast(1.05);
+  z-index: 0;
+}
+
+/* Overlay para legibilidad (oscuro + glass) */
+#business.business-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(1200px 500px at 20% 0%, rgba(255,215,80,.18), transparent 55%),
+    linear-gradient(180deg, rgba(8,16,32,.80), rgba(8,16,32,.60));
+  z-index: 1;
+}
+
+/* Contenido por encima del fondo */
+#business .business-inner{
+  position: relative;
+  z-index: 2;
+  padding: 26px 18px;
+}
+
+/* Ajuste: cards se ven “glass” encima del fondo */
+#business.business-bg .card{
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Texto más legible en foto */
+#business.business-bg .muted{
+  color: rgba(255,255,255,.78);
+}
+#business.business-bg h2,
+#business.business-bg h3{
+  color: rgba(255,255,255,.95);
+}
+
+/* En móvil: más padding */
+@media (max-width: 640px){
+  #business .business-inner{ padding: 22px 14px; }
+  #business.business-bg{ border-radius: 18px; }
+}
