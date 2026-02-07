@@ -1153,4 +1153,22 @@ filter: blur(6px);
     text-align: center;
   }
 }
+/* ===== FIX iOS Safari: botones de filtro NO blancos ===== */
+.filter-btn{
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255,255,255,.05) !important;
+  color: rgba(245,247,250,.86) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Activo (también forzado) */
+.filter-btn.is-active{
+  background: linear-gradient(135deg,var(--gold),var(--gold2)) !important;
+  color: #0A1630 !important;
+  border-color: transparent !important;
+}
+:root{ color-scheme: dark; }
 
