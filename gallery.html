@@ -1,176 +1,303 @@
-/* ================= GALLERY (FILTER + GRID + LIGHTBOX) ================= */
-.gallery-hero{ padding: 46px 0 10px; }
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Galería | Higher Education Academy</title>
+  <meta name="description" content="Galería de fotos — Higher Education Academy." />
+  <meta name="theme-color" content="#0B1E3B" />
 
-.gallery-hero-inner{
-  position:relative;
-  overflow:hidden;
-  padding: 18px;
-}
-.gallery-hero-inner::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(700px 260px at 20% 0%, rgba(242,193,78,.14), transparent 55%),
-    linear-gradient(180deg, rgba(6,16,34,.55), rgba(6,16,34,.25));
-  pointer-events:none;
-}
-.gallery-hero-inner > *{ position:relative; z-index:1; }
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="rain.css" />
+</head>
 
-.gallery-hero-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom: 10px;
-}
-.gallery-count{
-  font-weight:900;
-  color: rgba(245,247,250,.78);
-  letter-spacing:.02em;
-}
+<body>
+  <!-- Decorative background layers -->
+  <div class="bg" aria-hidden="true">
+    <span class="orb o1"></span>
+    <span class="orb o2"></span>
+    <span class="orb o3"></span>
+    <span class="grid"></span>
+    <span class="vignette"></span>
+  </div>
 
-.gallery-title{
-  margin: 6px 0 8px;
-  font-size: clamp(26px, 3.5vw, 44px);
-  line-height: 1.08;
-}
-.gallery-sub{
-  margin: 0 0 14px;
-  line-height: 1.6;
-  max-width: 70ch;
-}
+  <!-- TOP BAR -->
+  <header class="top" role="banner">
+    <div class="wrap top-row">
+      <a class="brand" href="index.html#home" aria-label="Higher Education Academy">
+        Higher Education Academy
+      </a>
 
-.gallery-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+      <!-- Desktop nav -->
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="index.html#eagles">Eagles</a>
+        <a href="index.html#business">Business Kids</a>
+        <a href="gallery.html" aria-current="page">Galería</a>
+        <a href="about.html">Quiénes somos?</a>
+        <a class="nav-cta" href="index.html#contact">Solicitar información</a>
+      </nav>
 
-/* Filters */
-.gallery-filters{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin: 8px 0 14px;
-}
+      <!-- Mobile hamburger -->
+      <button class="hamburger" type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
 
-.filter-btn{
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.05);
-  color: rgba(245,247,250,.86);
-  font-weight: 900;
-  cursor: pointer;
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
-}
-.filter-btn:hover{ transform: translateY(-1px); }
+    <!-- MOBILE MENU -->
+    <nav id="mobileMenu" class="mobile-menu" aria-label="Menú móvil">
+      <a href="index.html#eagles">Eagles</a>
+      <a href="index.html#business">Business Kids</a>
+      <a href="gallery.html" aria-current="page">Galería</a>
+      <a href="about.html">Quiénes somos?</a>
+      <a class="mobile-cta" href="index.html#contact">Solicitar información</a>
+    </nav>
+  </header>
 
-.filter-btn.is-active{
-  background: linear-gradient(135deg,var(--gold),var(--gold2));
-  color: #0A1630;
-  border-color: transparent;
-}
+  <main>
+    <!-- HERO -->
+    <section class="gallery-hero" id="top">
+      <div class="wrap">
+        <div class="gallery-hero-inner card">
+          <div class="gallery-hero-top">
+            <span class="pill">Galería</span>
+            <span class="gallery-count" id="countLabel">—</span>
+          </div>
 
-/* Grid */
-.gallery-grid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
+          <h1 class="gallery-title">Fotos 2025 - 2026</h1>
+          <p class="muted gallery-sub">
+            Filtra por categoría sin salir de la página. Toca una foto para verla en grande.
+          </p>
 
-.gallery-item{
-  padding:0;
-  border-radius: var(--r2);
-  cursor:pointer;
-  text-align:left;
-  background: rgba(255,255,255,.05);
-  border: 1px solid var(--stroke2);
-  overflow:hidden;
-  position:relative;
-  transition: transform .15s ease, border-color .15s ease, background .15s ease;
-}
-.gallery-item:hover{
-  transform: translateY(-2px);
-  border-color: rgba(242,193,78,.22);
-  background: rgba(255,255,255,.06);
-}
-.gallery-item img{
-  width:100%;
-  height: 240px;
-  object-fit: cover;
-  display:block;
-  transform: scale(1.01);
-  filter: saturate(.95) contrast(1.05);
-}
+          <!-- FILTERS -->
+          <div class="gallery-filters" role="tablist" aria-label="Filtros de galería">
+            <button class="filter-btn is-active" type="button" data-filter="all" role="tab" aria-selected="true">Todos</button>
+            <button class="filter-btn" type="button" data-filter="eagles" role="tab" aria-selected="false">Eagles</button>
+            <button class="filter-btn" type="button" data-filter="business" role="tab" aria-selected="false">Business Kids</button>
+            <button class="filter-btn" type="button" data-filter="eventos" role="tab" aria-selected="false">Eventos</button>
+            <button class="filter-btn" type="button" data-filter="instalaciones" role="tab" aria-selected="false">Instalaciones</button>
+          </div>
 
-/* Tag */
-.gallery-item .tag{
-  position:absolute;
-  left:12px;
-  bottom:12px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  font-weight: 900;
-  font-size: 12px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: rgba(245,247,250,.92);
-  background: rgba(10,18,40,.62);
-  border: 1px solid rgba(255,255,255,.14);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
+          <div class="gallery-actions">
+            <a class="btn btn-soft" href="index.html#home">← Volver al inicio</a>
+            <a class="btn btn-primary" href="index.html#contact">Solicitar información</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-/* Hidden for filter */
-.gallery-item.is-hidden{
-  display:none !important;
-}
+    <!-- GRID -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Fotos</h2>
+            <p class="muted">Cambias las rutas cuando subas tus fotos. Cada foto tiene su categoría.</p>
+          </div>
+          <span class="pill">Filtrable</span>
+        </div>
 
-/* Responsive columns */
-@media (min-width: 680px){
-  .gallery-grid{ grid-template-columns: 1fr 1fr; }
-  .gallery-item img{ height: 260px; }
-}
-@media (min-width: 980px){
-  .gallery-grid{ grid-template-columns: 1fr 1fr 1fr; }
-  .gallery-item img{ height: 240px; }
-}
+        <div class="gallery-grid" id="galleryGrid">
 
-/* Lightbox */
-.lightbox{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.72);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding: 18px;
-  z-index: 200;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.lightbox.show{ display:flex; }
+          <!-- ===== EAGLES ===== -->
+          <button class="gallery-item card" type="button" data-cat="eagles"
+            data-full="assets/img/gallery/eagles/01.jpg" aria-label="Abrir foto Eagles 1">
+            <img src="assets/img/gallery/eagles/01.jpg" alt="Eagles 1" loading="lazy">
+            <span class="tag">Eagles</span>
+          </button>
 
-.lightbox-img{
-  max-width: min(1100px, 96vw);
-  max-height: 82vh;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 28px 80px rgba(0,0,0,.55);
-  background: rgba(255,255,255,.03);
-}
+          <button class="gallery-item card" type="button" data-cat="eagles"
+            data-full="assets/img/gallery/eagles/02.jpg" aria-label="Abrir foto Eagles 2">
+            <img src="assets/img/gallery/eagles/02.jpg" alt="Eagles 2" loading="lazy">
+            <span class="tag">Eagles</span>
+          </button>
 
-.lightbox-close{
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(10,18,40,.55);
-  color: rgba(245,247,250,.92);
-  font-size: 28px;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 210;
-}
-.lightbox-close:hover{ transform: translateY(-1px); }
+          <button class="gallery-item card" type="button" data-cat="eagles"
+            data-full="assets/img/gallery/eagles/03.jpg" aria-label="Abrir foto Eagles 3">
+            <img src="assets/img/gallery/eagles/03.jpg" alt="Eagles 3" loading="lazy">
+            <span class="tag">Eagles</span>
+          </button>
+
+          <!-- ===== BUSINESS ===== -->
+          <button class="gallery-item card" type="button" data-cat="business"
+            data-full="assets/img/gallery/business/01.jpg" aria-label="Abrir foto Business 1">
+            <img src="assets/img/gallery/business/01.jpg" alt="Business Kids 1" loading="lazy">
+            <span class="tag">Business</span>
+          </button>
+
+          <button class="gallery-item card" type="button" data-cat="business"
+            data-full="assets/img/gallery/business/02.jpg" aria-label="Abrir foto Business 2">
+            <img src="assets/img/gallery/business/02.jpg" alt="Business Kids 2" loading="lazy">
+            <span class="tag">Business</span>
+          </button>
+
+          <!-- ===== EVENTOS ===== -->
+          <button class="gallery-item card" type="button" data-cat="eventos"
+            data-full="assets/img/gallery/eventos/01.jpg" aria-label="Abrir foto Eventos 1">
+            <img src="assets/img/gallery/eventos/01.jpg" alt="Evento 1" loading="lazy">
+            <span class="tag">Eventos</span>
+          </button>
+
+          <button class="gallery-item card" type="button" data-cat="eventos"
+            data-full="assets/img/gallery/eventos/02.jpg" aria-label="Abrir foto Eventos 2">
+            <img src="assets/img/gallery/eventos/02.jpg" alt="Evento 2" loading="lazy">
+            <span class="tag">Eventos</span>
+          </button>
+
+          <!-- ===== INSTALACIONES ===== -->
+          <button class="gallery-item card" type="button" data-cat="instalaciones"
+            data-full="assets/img/gallery/instalaciones/01.jpg" aria-label="Abrir foto Instalaciones 1">
+            <img src="assets/img/gallery/instalaciones/01.jpg" alt="Instalaciones 1" loading="lazy">
+            <span class="tag">Instalaciones</span>
+          </button>
+
+          <button class="gallery-item card" type="button" data-cat="instalaciones"
+            data-full="assets/img/gallery/instalaciones/02.jpg" aria-label="Abrir foto Instalaciones 2">
+            <img src="assets/img/gallery/instalaciones/02.jpg" alt="Instalaciones 2" loading="lazy">
+            <span class="tag">Instalaciones</span>
+          </button>
+
+        </div>
+
+        <p class="tiny">
+          Sugerencia de carpetas (ordenado):<br>
+          <code>assets/img/gallery/eagles/</code> • <code>business/</code> • <code>eventos/</code> • <code>instalaciones/</code>
+        </p>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Vista ampliada">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar (Esc)">×</button>
+      <img class="lightbox-img" id="lightboxImg" alt="">
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span class="muted">
+        © <span id="year"></span>
+        <a href="https://www.raymonddevelop.com" target="_blank" rel="noopener">RaymondDevelop</a>
+      </span>
+      <a class="muted link" href="#top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in
+    window.addEventListener("load", () => document.body.classList.add("loaded"));
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const burger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".mobile-menu");
+    function closeMenu(){
+      burger.classList.remove("open");
+      menu.classList.remove("show");
+      burger.setAttribute("aria-expanded", "false");
+    }
+    burger.addEventListener("click", () => {
+      const isOpen = burger.classList.toggle("open");
+      menu.classList.toggle("show");
+      burger.setAttribute("aria-expanded", String(isOpen));
+    });
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeMenu(); });
+
+    // Scroll restore
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.addEventListener("load", () => window.scrollTo(0,0));
+
+    // Reveal
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((c, i) => {
+      c.classList.add("reveal");
+      c.style.transitionDelay = `${Math.min(i * 60, 240)}ms`;
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: "0px 0px -10% 0px" });
+    cards.forEach((c) => io.observe(c));
+
+    // Filtering
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const items = Array.from(document.querySelectorAll(".gallery-item"));
+    const countLabel = document.getElementById("countLabel");
+
+    function updateCount(){
+      const visible = items.filter(it => !it.classList.contains("is-hidden")).length;
+      countLabel.textContent = `${visible} fotos`;
+    }
+
+    function setFilter(cat){
+      items.forEach(it => {
+        const match = (cat === "all") || (it.dataset.cat === cat);
+        it.classList.toggle("is-hidden", !match);
+      });
+
+      filterBtns.forEach(b => {
+        const active = b.dataset.filter === cat;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-selected", active ? "true" : "false");
+      });
+
+      updateCount();
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => setFilter(btn.dataset.filter));
+    });
+
+    // Default
+    setFilter("all");
+
+    // Lightbox
+    const grid = document.getElementById("galleryGrid");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const btnClose = document.getElementById("lightboxClose");
+
+    function openLightbox(src, alt){
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "Foto ampliada";
+      lightbox.classList.add("show");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove("show");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    grid?.addEventListener("click", (e) => {
+      const btn = e.target.closest(".gallery-item");
+      if(!btn) return;
+      const full = btn.getAttribute("data-full") || "";
+      const img = btn.querySelector("img");
+      openLightbox(full || img?.src, img?.alt);
+    });
+
+    btnClose?.addEventListener("click", closeLightbox);
+    lightbox?.addEventListener("click", (e) => { if(e.target === lightbox) closeLightbox(); });
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
+    });
+  </script>
+
+  <div class="gold-rain" aria-hidden="true"></div>
+</body>
+</html>
