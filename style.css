@@ -960,30 +960,42 @@ filter: blur(6px);
 .gallery-actions{ display:flex; gap:12px; flex-wrap:wrap; }
 
 /* Filters */
+/* ===== Filters (FIX alineación móvil) ===== */
 .gallery-filters{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin: 8px 0 14px;
+  display: flex;
+  flex-wrap: wrap;
+
+  /* 👇 CLAVE: centra el bloque completo */
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;                 /* espacio consistente entre botones */
+  margin: 14px auto 18px;   /* aire arriba/abajo + centrado */
+  max-width: 520px;         /* evita que se estiren demasiado */
 }
 
+/* Botones de filtro */
 .filter-btn{
-  padding: 10px 14px;
+  padding: 9px 14px;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;      /* evita cortes raros */
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.05);
-  color: rgba(245,247,250,.86);
-  font-weight: 900;
-  cursor: pointer;
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
 }
-.filter-btn:hover{ transform: translateY(-1px); }
 
-.filter-btn.is-active{
-  background: linear-gradient(135deg,var(--gold),var(--gold2));
-  color: #0A1630;
-  border-color: transparent;
+/* Extra fino solo en móvil */
+@media (max-width: 760px){
+  .gallery-filters{
+    gap: 10px;
+    margin: 16px auto 20px;
+  }
+
+  .filter-btn{
+    font-size: 13px;
+    padding: 10px 14px;
+  }
 }
+
 
 /* Grid */
 .gallery-grid{
