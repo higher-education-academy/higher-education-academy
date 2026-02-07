@@ -1200,4 +1200,28 @@ filter: blur(6px);
   z-index: 1;
 }
 
+/* ===== Gallery con el mismo HERO del index ===== */
+.hero.hero-gallery::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(6,16,34,.90), rgba(6,16,34,.62), rgba(6,16,34,.90)),
+    url("assets/img/back1.jpg");
+  background-size:cover;
+  background-position:center;
+  filter:saturate(.9) contrast(1.05);
+  z-index:0;
+}
+
+/* Asegura que el contenido quede por encima */
+.hero.hero-gallery .wrap{
+  position:relative;
+  z-index:1;
+}
+
+/* Un poquito más compacta que el index */
+.hero.hero-gallery{
+  padding: 64px 0 32px;
+}
 
