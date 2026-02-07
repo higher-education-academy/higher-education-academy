@@ -12,7 +12,6 @@
 </head>
 
 <body>
-  <!-- Decorative background layers -->
   <div class="bg" aria-hidden="true">
     <span class="orb o1"></span>
     <span class="orb o2"></span>
@@ -21,14 +20,12 @@
     <span class="vignette"></span>
   </div>
 
-  <!-- TOP BAR -->
   <header class="top" role="banner">
     <div class="wrap top-row">
       <a class="brand" href="index.html#home" aria-label="Higher Education Academy">
         Higher Education Academy
       </a>
 
-      <!-- Desktop nav -->
       <nav class="nav" aria-label="Navegación principal">
         <a href="index.html#eagles">Eagles</a>
         <a href="index.html#business">Business Kids</a>
@@ -37,18 +34,14 @@
         <a class="nav-cta" href="index.html#contact">Solicitar información</a>
       </nav>
 
-      <!-- Mobile hamburger -->
       <button class="hamburger" type="button"
         aria-label="Abrir menú"
         aria-expanded="false"
         aria-controls="mobileMenu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
 
-    <!-- MOBILE MENU -->
     <nav id="mobileMenu" class="mobile-menu" aria-label="Menú móvil">
       <a href="index.html#eagles">Eagles</a>
       <a href="index.html#business">Business Kids</a>
@@ -59,127 +52,69 @@
   </header>
 
   <main>
-    <!-- HERO (mini) -->
-    <section class="gallery-hero" id="top">
-      <div class="wrap">
-        <div class="gallery-hero-inner card">
-          <div class="gallery-hero-top">
-            <img src="assets/img/eagles.png" alt="Eagles Academy" class="gallery-badge" />
-            <span class="pill">Galería</span>
-          </div>
-
-          <h1 class="gallery-title">Galería 2025 - 2026</h1>
-          <p class="muted gallery-sub">
-            Fotos, eventos y momentos del programa. Toca una foto para verla en grande.
-          </p>
-
-          <div class="gallery-actions">
-            <a class="btn btn-soft" href="index.html#eagles">← Volver a Eagles</a>
-            <a class="btn btn-primary" href="index.html#contact">Solicitar información</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY GRID -->
-    <section class="section">
+    <section class="section" id="top">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <h2>Fotos</h2>
-            <p class="muted">Puedes cambiar estas imágenes por las tuyas dentro de <code>assets/img/</code>.</p>
+            <h2>Galería</h2>
+            <p class="muted">Elige una categoría para ver fotos. Eagles queda separado del resto.</p>
           </div>
-          <span class="pill">Eagles</span>
+          <span class="pill">Categorías</span>
         </div>
 
-        <!--
-          ✅ Sustituye los src por tus fotos reales.
-          Recomendación: assets/img/gallery/01.jpg, 02.jpg...
-        -->
-        <div class="gallery-grid" id="galleryGrid">
-          <!-- Card 1 -->
-          <button class="gallery-item card" type="button"
-            data-full="assets/img/gallery/01.jpg"
-            aria-label="Abrir foto 1">
-            <img src="assets/img/gallery/01.jpg" alt="Foto 1" loading="lazy">
-          </button>
+        <div class="cards cards-2">
+          <article class="card">
+            <h3>Eagles</h3>
+            <p class="muted">Entrenamientos, juegos, logros y eventos del programa deportivo.</p>
+            <div class="mini-grid">
+              <a class="btn btn-primary w100" href="gallery-eagles.html">Abrir Eagles →</a>
+            </div>
+          </article>
 
-          <button class="gallery-item card" type="button"
-            data-full="assets/img/gallery/02.jpg"
-            aria-label="Abrir foto 2">
-            <img src="assets/img/gallery/02.jpg" alt="Foto 2" loading="lazy">
-          </button>
+          <article class="card">
+            <h3>Business Kids</h3>
+            <p class="muted">Actividades, talleres, proyectos y eventos de emprendimiento.</p>
+            <div class="mini-grid">
+              <a class="btn btn-primary w100" href="gallery-business.html">Abrir Business Kids →</a>
+            </div>
+          </article>
 
-          <button class="gallery-item card" type="button"
-            data-full="assets/img/gallery/03.jpg"
-            aria-label="Abrir foto 3">
-            <img src="assets/img/gallery/03.jpg" alt="Foto 3" loading="lazy">
-          </button>
+          <article class="card">
+            <h3>Eventos escolares</h3>
+            <p class="muted">Actividades generales, ferias, celebraciones y experiencias.</p>
+            <div class="mini-grid">
+              <a class="btn btn-primary w100" href="gallery-eventos.html">Abrir Eventos →</a>
+            </div>
+          </article>
 
-          <button class="gallery-item card" type="button"
-            data-full="assets/img/gallery/04.jpg"
-            aria-label="Abrir foto 4">
-            <img src="assets/img/gallery/04.jpg" alt="Foto 4" loading="lazy">
-          </button>
-
-          <button class="gallery-item card" type="button"
-            data-full="assets/img/gallery/05.jpg"
-            aria-label="Abrir foto 5">
-            <img src="assets/img/gallery/05.jpg" alt="Foto 5" loading="lazy">
-          </button>
-
-          <button class="gallery-item card" type="button"
-            data-full="assets/img/gallery/06.jpg"
-            aria-label="Abrir foto 6">
-            <img src="assets/img/gallery/06.jpg" alt="Foto 6" loading="lazy">
-          </button>
-
-          <button class="gallery-item card" type="button"
-            data-full="assets/img/gallery/07.jpg"
-            aria-label="Abrir foto 7">
-            <img src="assets/img/gallery/07.jpg" alt="Foto 7" loading="lazy">
-          </button>
-
-          <button class="gallery-item card" type="button"
-            data-full="assets/img/gallery/08.jpg"
-            aria-label="Abrir foto 8">
-            <img src="assets/img/gallery/08.jpg" alt="Foto 8" loading="lazy">
-          </button>
+          <article class="card">
+            <h3>Instalaciones</h3>
+            <p class="muted">Salones, facilidades, áreas deportivas y espacios del campus.</p>
+            <div class="mini-grid">
+              <a class="btn btn-primary w100" href="gallery-instalaciones.html">Abrir Instalaciones →</a>
+            </div>
+          </article>
         </div>
 
-        <p class="tiny">
-          Tip: Si no tienes aún las fotos, crea la carpeta <code>assets/img/gallery/</code> y sube imágenes con esos nombres.
-        </p>
+        <p class="tiny">Puedes crear/ocultar categorías según lo necesites.</p>
       </div>
     </section>
-
-    <!-- LIGHTBOX -->
-    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Vista ampliada">
-      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar (Esc)">×</button>
-      <img class="lightbox-img" id="lightboxImg" alt="">
-    </div>
   </main>
 
   <footer class="foot">
     <div class="wrap foot-row">
       <span class="muted">
         © <span id="year"></span>
-        <a href="https://www.raymonddevelop.com" target="_blank" rel="noopener">
-          RaymondDevelop
-        </a>
+        <a href="https://www.raymonddevelop.com" target="_blank" rel="noopener">RaymondDevelop</a>
       </span>
       <a class="muted link" href="#top">Volver arriba ↑</a>
     </div>
   </footer>
 
   <script>
-    // Fade-in
     window.addEventListener("load", () => document.body.classList.add("loaded"));
-
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
     const burger = document.querySelector(".hamburger");
     const menu = document.querySelector(".mobile-menu");
 
@@ -198,15 +133,13 @@
     menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
     document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeMenu(); });
 
-    // FIX scroll restore
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
     window.addEventListener("load", () => window.scrollTo(0,0));
 
-    // Reveal (mismo estilo Apple para cards)
     const cards = document.querySelectorAll(".card");
     cards.forEach((c, i) => {
       c.classList.add("reveal");
-      c.style.transitionDelay = `${Math.min(i * 60, 240)}ms`;
+      c.style.transitionDelay = `${Math.min(i * 80, 240)}ms`;
     });
 
     const io = new IntersectionObserver((entries) => {
@@ -219,47 +152,8 @@
     }, { threshold: 0.18, rootMargin: "0px 0px -10% 0px" });
 
     cards.forEach((c) => io.observe(c));
-
-    // Lightbox
-    const grid = document.getElementById("galleryGrid");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImg");
-    const btnClose = document.getElementById("lightboxClose");
-
-    function openLightbox(src, alt){
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || "Foto ampliada";
-      lightbox.classList.add("show");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeLightbox(){
-      lightbox.classList.remove("show");
-      lightbox.setAttribute("aria-hidden", "true");
-      lightboxImg.src = "";
-      document.body.style.overflow = "";
-    }
-
-    grid?.addEventListener("click", (e) => {
-      const btn = e.target.closest(".gallery-item");
-      if(!btn) return;
-      const full = btn.getAttribute("data-full") || "";
-      const img = btn.querySelector("img");
-      openLightbox(full || img?.src, img?.alt);
-    });
-
-    btnClose?.addEventListener("click", closeLightbox);
-    lightbox?.addEventListener("click", (e) => {
-      if(e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
-    });
   </script>
 
   <div class="gold-rain" aria-hidden="true"></div>
 </body>
 </html>
-
