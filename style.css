@@ -1176,4 +1176,28 @@ filter: blur(6px);
   text-align: right;
   line-height: 1.5;
 }
+/* ===== Gallery hero con la MISMA foto que el index ===== */
+.gallery-hero{
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(6,16,34,.85), rgba(6,16,34,.65), rgba(6,16,34,.9)),
+    url("assets/img/back1.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(.9) contrast(1.05);
+  z-index: 0;
+}
+
+.gallery-hero .wrap{
+  position: relative;
+  z-index: 1;
+}
+
 
