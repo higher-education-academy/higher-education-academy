@@ -580,9 +580,13 @@ input:focus,select:focus,textarea:focus{
 }
 /* ===== MAPA BRUTAL (card + glass) ===== */
 .map-card{
-  width:100%;
-  max-width:900px;               /* desktop */
-  margin:12px auto 16px;         /* menos espacio arriba y abajo */
+  /* 👇 esto garantiza espacio a ambos lados SIEMPRE (móvil incluido) */
+  width: min(520px, calc(100% - 32px - env(safe-area-inset-left) - env(safe-area-inset-right)));
+  max-width: 900px;
+
+  /* 👇 más arriba y con un poquito de espacio antes del footer */
+  margin: 10px auto 14px;
+
   position:relative;
   border-radius:24px;
   overflow:hidden;
@@ -625,19 +629,8 @@ input:focus,select:focus,textarea:focus{
   backdrop-filter: blur(10px);
 }
 
-/* móvil: que NO se vea tan ancho */
+/* móvil: un poco menos alto + ajusta el botón */
 @media (max-width:760px){
-  .map-card{
-    max-width:520px;             /* 👈 esto es lo que lo hace “menos ancho” en iPhone */
-    margin:10px auto 14px;       /* menos espacio arriba y abajo */
-  }
-
-  .map-embed{
-    height:210px;                /* un poco menos alto */
-  }
-
-  .map-cta{
-    left:12px;
-    bottom:12px;
-  }
+  .map-embed{ height:210px; }
+  .map-cta{ left:12px; bottom:12px; }
 }
