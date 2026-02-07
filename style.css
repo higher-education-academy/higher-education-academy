@@ -697,3 +697,19 @@ input:focus,select:focus,textarea:focus{
   #business .business-inner{ padding: 22px 14px; }
   #business.business-bg{ border-radius: 18px; }
 }
+/* ===== FIX iPhone: mejor encuadre de la foto ===== */
+@media (max-width: 768px){
+  #business.business-bg::before{
+    background-position: center top; /* sube el encuadre */
+    transform: scale(1.15);          /* zoom out visual */
+  }
+}
+
+/* iPhone pequeños (SE / mini) */
+@media (max-width: 430px){
+  #business.business-bg::before{
+    background-position: center 15%;
+    transform: scale(1.22);
+  }
+}
+
