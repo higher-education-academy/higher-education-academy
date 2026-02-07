@@ -742,8 +742,8 @@ input:focus,select:focus,textarea:focus{
 /* ===== Apple-like scroll reveal (zoom + blur + fade) ===== */
 .card.reveal{
   opacity: 0;
-  transform: translateY(18px) scale(.975);
-  filter: blur(10px);
+ transform: translateY(18px) scale(.96);
+filter: blur(6px);
   transition:
     opacity .7s ease,
     transform .7s cubic-bezier(.2,.8,.2,1),
