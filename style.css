@@ -1171,4 +1171,9 @@ filter: blur(6px);
   border-color: transparent !important;
 }
 :root{ color-scheme: dark; }
+/* ===== FIX Dirección: segunda línea alineada a la derecha ===== */
+.line .value{
+  text-align: right;
+  line-height: 1.5;
+}
 
