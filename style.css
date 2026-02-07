@@ -739,5 +739,23 @@ input:focus,select:focus,textarea:focus{
     transform: scale(1.2) !important;
   }
 }
+/* Parallax sutil: tarjetas se sienten separadas del fondo */
+@media (prefers-reduced-motion: no-preference){
+  #business .card{
+    transform-style: preserve-3d;
+  }
+  #business .card{
+    animation: floaty 6.5s ease-in-out infinite;
+  }
+  #business .cards-2 .card:nth-child(2){
+    animation-delay: -2.8s;
+  }
+}
+
+@keyframes floaty{
+  0%, 100%{ transform: translateY(0px); }
+  50%{ transform: translateY(-8px); }
+}
+
 
 
