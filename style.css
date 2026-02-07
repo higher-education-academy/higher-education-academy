@@ -578,4 +578,55 @@ input:focus,select:focus,textarea:focus{
     margin-top: 14px;
   }
 }
+/* ===== MAPA BRUTAL (card + glass) ===== */
+.map-card{
+  position:relative;
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid var(--stroke2);
+  background:rgba(255,255,255,.04);
+  box-shadow: var(--shadow2);
+  isolation:isolate;
+  margin-top:16px;
+}
+
+/* mantiene proporción bonita (no “cuadrado feo”) */
+.map-embed{
+  width:100%;
+  height:320px;
+  border:0;
+  display:block;
+  filter:saturate(.95) contrast(1.05);
+  transform:scale(1.02); /* cubre bordes/lineitas */
+}
+
+/* overlay arriba para que se vea pro */
+.map-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(700px 240px at 20% 0%, rgba(242,193,78,.10), transparent 55%),
+    linear-gradient(180deg, rgba(6,16,34,.10), rgba(6,16,34,.55));
+  pointer-events:none;
+}
+
+.map-cta{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(10,18,40,.55);
+  backdrop-filter: blur(10px);
+}
+
+/* móvil: un poco menos alto */
+@media (max-width:760px){
+  .map-embed{ height:260px; }
+  .map-cta{ left:12px; bottom:12px; }
+}
+
 
