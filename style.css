@@ -280,6 +280,21 @@ h1{
   background:rgba(242,193,78,.12);
   margin-bottom:12px;
 }
+.icon-svg{
+  width: 24px;
+  height: 24px;
+  stroke: rgba(245,247,250,.92);
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+}
+
+/* toque “gold” sutil */
+.card:hover .icon-svg{
+  stroke: rgba(242,193,78,.95);
+}
 
 /* ================= CONTACT ================= */
 .cta{padding:70px 0}
