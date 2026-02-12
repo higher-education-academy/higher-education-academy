@@ -1312,5 +1312,45 @@ filter: blur(6px);
 .nav .nav-soft:hover{
   background:rgba(255,255,255,.09);
 }
+/* ===== NAV DESKTOP: todo en 1 línea + más compacto ===== */
+@media (min-width: 900px){
+  .top-row{
+    flex-wrap: nowrap;
+    gap: 14px;
+  }
+
+  /* deja que el nav use el espacio y empuje a la derecha */
+  .brand{ flex: 0 0 auto; }
+  .nav{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    flex-wrap: nowrap;   /* CLAVE: no se rompe */
+    gap: 8px;            /* menos separación */
+    min-width: 0;
+  }
+
+  /* links más compactos y SIN salto */
+  .nav a{
+    white-space: nowrap; /* CLAVE */
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  /* botón “glass” igual de fino */
+  .nav .nav-soft{
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  /* CTA amarillo: NO se parte */
+  .nav .nav-cta{
+    white-space: nowrap;
+    padding: 10px 14px;
+  }
+}
 
 
