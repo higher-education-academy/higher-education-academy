@@ -1298,5 +1298,19 @@ filter: blur(6px);
 @media (min-width:760px){
   .cta-grid .pay-card{ grid-column: 2; }
 }
+/* Botón secundario (glass elegante) */
+.nav .nav-soft{
+  padding:10px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  color:rgba(245,247,250,.90);
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.nav .nav-soft:hover{
+  background:rgba(255,255,255,.09);
+}
 
 
