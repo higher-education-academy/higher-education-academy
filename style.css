@@ -1361,15 +1361,16 @@ filter: blur(6px);
 }
 
 .social-icon{
-  width:22px;
-  height:22px;
-  fill:rgba(245,247,250,.85);
-  transition: .2s ease;
+  width:24px;
+  height:24px;
+  color:rgba(245,247,250,.85);
+  transition:.25s ease;
 }
 
 .socials a:hover .social-icon{
-  fill: var(--gold2);
+  color: var(--gold2);
   transform: translateY(-2px);
 }
+
 
 
