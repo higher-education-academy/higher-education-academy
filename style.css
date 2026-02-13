@@ -1435,6 +1435,25 @@ filter: blur(6px);
   }
 
 }
+/* ===== CONTACT: todo en 1 columna en DESKTOP (título arriba) ===== */
+@media (min-width: 900px){
+
+  /* 1 sola columna, no lado a lado */
+  #contact .cta-grid{
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+    align-items: start;
+  }
+
+  /* centra y limita ancho para que se vea pro */
+  #contact .cta-copy,
+  #contact .form,
+  #contact .pay-card{
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
 
 
 
