@@ -1382,6 +1382,27 @@ filter: blur(6px);
   fill: var(--gold2);
   transform: translateY(-2px);
 }
+/* ===== CONTACT FIX DESKTOP ===== */
+@media (min-width: 900px){
+
+  .cta-grid{
+    grid-template-columns: minmax(320px, 1fr) minmax(360px, 520px);
+    align-items: start;
+    gap: 28px;
+  }
+
+  .cta-copy{
+    max-width: 560px;
+  }
+
+  .cta-grid > :nth-child(2){
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+}
+
 
 
 
