@@ -1351,6 +1351,24 @@ filter: blur(6px);
     white-space: nowrap;
     padding: 10px 14px;
   }
+
+/* ===== Redes sociales footer ===== */
+.socials{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.social-icon{
+  width:22px;
+  height:22px;
+  fill:rgba(245,247,250,.85);
+  transition: .2s ease;
+}
+
+.socials a:hover .social-icon{
+  fill: var(--gold2);
+  transform: translateY(-2px);
 }
 
 
