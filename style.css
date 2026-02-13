@@ -1402,6 +1402,30 @@ filter: blur(6px);
   }
 
 }
+/* ===== CONTACT: centrar bloque en desktop/tablet ===== */
+@media (min-width:760px){
+  #contact .cta-grid{
+    /* dos columnas con ancho controlado */
+    grid-template-columns: minmax(320px, 520px) minmax(360px, 520px) !important;
+
+    /* centra el grid dentro del wrap */
+    justify-content: center !important;
+
+    gap: 28px !important;
+    align-items: start !important;
+  }
+
+  /* tu columna izquierda (texto) */
+  #contact .cta-copy{
+    max-width: 520px;
+  }
+
+  /* tu columna derecha (form + QR) = segundo hijo del grid */
+  #contact .cta-grid > :nth-child(2){
+    max-width: 520px;
+  }
+}
+
 
 
 
