@@ -1495,6 +1495,25 @@ filter: blur(6px);
 #contact .pay-card{
   margin-top: 4px;
 }
+/* ===== CONTACT: MISMO ANCHO PARA TODOS LOS GLASS ===== */
+#contact .cta-copy,
+#contact form.form,
+#contact .pay-card{
+  width: min(760px, calc(100% - 32px)) !important; /* mismo ancho real */
+  max-width: 760px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* por si alguna regla vieja limita el form/QR */
+#contact .form,
+#contact .pay-card{
+  justify-self: stretch !important;
+}
+
+/* opcional: que el QR no “ensanche” raro visualmente */
+#contact .qr-link{ display: inline-block; }
+#contact .qr-img{ width: min(320px, 100%); height: auto; }
 
 
 
