@@ -1435,27 +1435,24 @@ filter: blur(6px);
   }
 
 }
-/* ===== CONTACT: todo en 1 columna en DESKTOP (título arriba) ===== */
-@media (min-width: 900px){
-
-  /* 1 sola columna, no lado a lado */
+/* ===== CONTACT: en desktop/tablet, todo apilado (sin espacio vacío) ===== */
+@media (min-width: 760px){
+  /* fuerza 1 columna */
   #contact .cta-grid{
     grid-template-columns: 1fr !important;
     gap: 18px;
     align-items: start;
   }
 
-  /* centra y limita ancho para que se vea pro */
+  /* fuerza que cada bloque ocupe TODO el ancho del grid */
   #contact .cta-copy,
   #contact .form,
   #contact .pay-card{
-    max-width: 720px;
-    margin: 0 auto;
+    grid-column: 1 / -1 !important;
     width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
   }
 }
-
-
-
 
 
