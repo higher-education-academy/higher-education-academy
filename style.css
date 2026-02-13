@@ -1454,5 +1454,47 @@ filter: blur(6px);
     margin: 0 auto;
   }
 }
+/* ===== CONTACT VISUAL FIX (EMPAREJADO REAL) ===== */
+
+/* mismo ancho visual para todo el bloque */
+#contact .cta-grid{
+  max-width: 760px;
+  margin: 0 auto;
+  gap: 22px;
+}
+
+/* convertir el bloque izquierdo en glass */
+#contact .cta-copy{
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--stroke2);
+  border-radius: var(--r2);
+  padding: 22px;
+  backdrop-filter: blur(10px);
+}
+
+/* que form y QR tengan el mismo ancho visual */
+#contact .form,
+#contact .pay-card{
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* que todos tengan mismo radio */
+#contact .cta-copy,
+#contact .form,
+#contact .pay-card{
+  border-radius: var(--r2);
+}
+
+/* alinear mejor texto de dirección */
+#contact .line .value{
+  text-align: right;
+}
+
+/* mejorar separación visual */
+#contact .pay-card{
+  margin-top: 4px;
+}
+
 
 
