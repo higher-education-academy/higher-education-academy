@@ -493,7 +493,7 @@ input:focus,select:focus,textarea:focus{
 /* Botón */
 .panel .btn{margin-top:6px}
 
-/* ================= BUSINESS KIDS LOGO ================= */
+/* ================= BUSINESSKIDS LOGO ================= */
 .business-logo-wrap{
   display:flex;
   justify-content:center;
@@ -545,7 +545,7 @@ input:focus,select:focus,textarea:focus{
   }
 }
 
-/* ================= BUSINESS KIDS LOGO (DESKTOP) ================= */
+/* ================= BUSINESSKIDS LOGO (DESKTOP) ================= */
 @media (min-width:900px){
   .business-logo{
     max-width:240px;
@@ -567,7 +567,7 @@ input:focus,select:focus,textarea:focus{
   text-align:center;
 }
 
-/* ===== BUSINESS KIDS: pill arriba y centrado, título a la izquierda (REPARADO) ===== */
+/* ===== BUSINESSKIDS: pill arriba y centrado, título a la izquierda (REPARADO) ===== */
 #business .section-head{
   flex-direction:column;
   align-items:flex-start;
@@ -649,7 +649,7 @@ input:focus,select:focus,textarea:focus{
   .map-embed{ height:210px; }
   .map-cta{ left:12px; bottom:12px; }
 }
-/* ===== Business Kids con foto de fondo ===== */
+/* ===== BusinessKids con foto de fondo ===== */
 #business.business-bg{
   position: relative;
   overflow: hidden;
@@ -739,7 +739,7 @@ input:focus,select:focus,textarea:focus{
     background-position: center top;
   }
 }
-/* ===== Business Kids: encuadre a la derecha en mobile ===== */
+/* ===== BusinessKids: encuadre a la derecha en mobile ===== */
 @media (max-width: 768px){
   #business.business-bg::before{
     background-position: right center !important;
