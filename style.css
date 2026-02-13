@@ -1425,6 +1425,16 @@ filter: blur(6px);
     max-width: 520px;
   }
 }
+/* ===== CONTACT FIX FINAL ===== */
+@media (min-width: 980px){
+
+  #contact .cta-grid{
+    grid-template-columns: 1fr 1.1fr 0.9fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+}
 
 
 
