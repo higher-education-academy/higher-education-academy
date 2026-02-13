@@ -1371,6 +1371,17 @@ filter: blur(6px);
   color: var(--gold2);
   transform: translateY(-2px);
 }
+.social-icon-solid{
+  width:24px;
+  height:24px;
+  fill:rgba(245,247,250,.85);
+  transition:.25s ease;
+}
+
+.socials a:hover .social-icon-solid{
+  fill: var(--gold2);
+  transform: translateY(-2px);
+}
 
 
 
